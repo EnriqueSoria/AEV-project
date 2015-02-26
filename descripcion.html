@@ -8,7 +8,7 @@
         <meta name="author" content="">
         <link rel="icon" href="imgs/favicon.png">
 
-        <title>Nuestro juego</title>
+        <title>Chrome says: Descripción</title>
 
         <!-- Bootstrap -->
         <link href="css/bootstrap.css" rel="stylesheet">
@@ -31,15 +31,11 @@
         <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         -->
         
-        <!-- highlight.js -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
-        
-
     </head>
 
 
     <body>
+
         <!-- Fixed navbar -->
         <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container">
@@ -56,9 +52,9 @@
 
               <!-- A la esquerra -->
               <ul class="nav navbar-nav">
-                <li class="active"><a href="./index.html">Inicio</a></li>
+                <li><a href="./index.html">Inicio</a></li>
                 <li><a href="#screenshots">Capturas</a></li>
-                <li><a href="./descripcion.html">Descripción</a></li>
+                <li class="active"><a href="./descripcion.html">Descripción</a></li>
               </ul>
                
               <!-- A la dreta -->
@@ -75,7 +71,7 @@
         <div class="container" style="margin-top: 75px;">
 
 
-            <div class="text-center bg-alert">
+            <div class="jumbotron text-center">
                 <h1>Chrome says</h1>
                 <p class="lead">El joc és l'adaptació del clàssic “Simon says” a la consola Nintendo DS. No obstant, i per tal de dotar al projecte d'una mica de personalitat pròpia, canviarem el clàssic disc de quatre colors pel logotip del navegador Google Chrome, emprant els seus quatre colors com a tecles del disc.
                 </p>
@@ -84,49 +80,39 @@
                     <a class="btn btn-lg btn-success btn-"><i class="fa fa-download fa-lg"></i>  Descargar</a>
                 </p>
             </div>
-            
 
-            <br><hr><br>
 
-            <!-- ALUMNOS -->
-            <div class="row text-center">
-                <h1>Alumnos</h1>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img class="img-responsive img-circle center-block" width="200" height="200" src="imgs/scar.bmp" alt='preview'>
-                            </div>
+            <br><br>
 
-                            <div class="col-md-6">
-                                <h3 class="text-center lead">Lorem Ipsum</h3>
-                                <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Integer nec odio. Praesent libero.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img class="img-responsive img-circle center-block" width="200" height="200" src="imgs/cage.bmp" alt='preview'>
-                            </div>
-
-                            <div class="col-md-6">
-                                <h3 class="text-center lead">Lorem Ipsum</h3>
-                                <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Integer nec odio. Praesent libero.</p>
-                            </div>
-                        </div>
-                    </div>
+            <!-- DESCRIPCION -->
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Especificació del videojoc</h2>
+                    <p>
+                    Mentre que la característica principal del joc clàssic consisteix en anar fent més llarga i difícil la combinació de tecles que el jugador té que polsar, Chrome says afegirà també la característica d'un compte enrere. Cada vegada que el jugador faça un error, el comptador baixarà 7 segons, mentre que cada vegada que encerte, pujarà 4 segons (els temps no són definitius). Al ser un temporitzador, el temps anirà baixant segon a segon, l'objectiu del jugador és encertar la seqüència que se li ha dit al menor temps possible amb l'objectiu d'evitar que el comptador arribe a 0.</p>
+                </div>
+                <div class="col-md-6">
+                    <h2>DLCs: Posibles ampliacions</h2>
+                    <p>
+                    Com a ampliacions, en cas d'acabar el projecte i que ens sobre temps, es podria afegir un menú principal amb altres opcions, a més de la de jugar, com ara un ranking dels millors resultats, segons el número de seqüències correctes fetes fins el moment de que el comptador arribe a 0.
+                    </p>
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Un exemple de partida</h2>
+                    <p>
+                    El jugador iniciarà el joc, en la pantalla inferior (tàctil) es mostrarà una imatge, i en la superior un text associat a la mateixa. Si el jugador polsa el botó A (pot variar respecte a la versió final) passarà a la següent imatge i text associat. Amb aquestes imatges (no més de 2 o 3) s'informarà al jugador del context del joc, i del per què del disc amb forma del logo de Chrome: La nostra mare vol gastar el nostre ordinador però, desgraciats de nosaltres, ens hem oblidat d'esborrar l'historial de navegació! Per tal d'evitar que puga tindre accés al mateix, deguem fer el que ens diga Chrome, repetint les seqüències que ens indique. Tenim que aguantar el major temps possible per tal de que no descobrisca la veritat!
+Després d'aquesta introducció passarem al joc en sí mateix. A la pantalla superior es mostrarà el temporitzador, mentre que a la inferior trobarem el disc de Chrome amb el que tindrem que interactuar. El propi joc ens mostrarà a la pantalla inferior la seqüència que tenim que reproduir, il·luminant les tecles que tenim que polsar en l'ordre al que tenim que fer-ho. Immediatament després el jugador deurà tornar a polsar les mateixes tecles en l'ordre determinat. Si encerta, a la pantalla superior es sumaran els segons corresponents al temporitzador, si falla, es restaran.
+                    </p>
+                </div>
+            </div>
 
             <br><br><br><br><br><br>
 
-            <!-- CAPTURAS DE PANTALLA -->
-            <div id="screenshots" class="text-center">
+            <!-- CAPTURAS DE PANTALLA 
+            <div id="screenshots" class="jumbotron text-center">
                 <h1>Capturas de pantalla</h1>
                 <div id="cbp-fwslider" class="cbp-fwslider">
                     <ul>
@@ -137,7 +123,14 @@
                     </ul>
                 </div>
             </div>
-            
+            -->
+
+
+
+            <!-- DESCRIPCION DEL PROYECTO -->
+            <div id="detalles"></div>
+
+
 
         <!-- Slider
              https://github.com/codrops/Blueprint-FullWidthImageSlider
@@ -149,8 +142,6 @@
             } );
         </script>
 
-        <!-- Highlighter -->
-        <script>hljs.initHighlightingOnLoad();</script>
 
     </body>
 </html>

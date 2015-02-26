@@ -103,9 +103,7 @@ hr {
 pre {
   overflow: auto;
 }
-code {
-    font-family: 'Source Code Pro', ;
-},
+code,
 kbd,
 pre,
 samp {
