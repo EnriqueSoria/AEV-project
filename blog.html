@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="imgs/favicon.png">
+
+        <title>Nuestro juego</title>
+
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-theme.css" rel="stylesheet">
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-2.1.3.min.js"></script>
+
+        <!-- Font-Awesome -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Slider
+             https://github.com/codrops/Blueprint-FullWidthImageSlider
+        -->
+        <link rel="stylesheet" type="text/css" href="css/component.css" />
+        <script src="js/modernizr.custom.js"></script>
+        
+        <!-- Google fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+        <!-- Unused fonts
+        <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        -->
+        
+        <!-- highlight.js -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+        
+
+    </head>
+    
+        <body>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Chrome says</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+
+              <!-- A la esquerra -->
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="./index.html">Inicio</a></li>
+                <li><a href="#screenshots">Capturas</a></li>
+                <li><a href="../descripcion.html">Descripción</a></li>
+              </ul>
+               
+              <!-- A la dreta -->
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><i class="fa fa-download fa-lg"></i> Descargar</a></li>
+                <li><a href="#"><i class="fa fa-github fa-lg"></i> Ver en github</a></li>
+              </ul>
+            </div>
+
+          </div>
+        </nav>
+
+
+        <div class="container" style="margin-top: 75px;">
+
+
+            <div class="text-center bg-alert">
+                <h1>Chrome says</h1>
+                <p class="lead">El joc és l'adaptació del clàssic “Simon says” a la consola Nintendo DS. No obstant, i per tal de dotar al projecte d'una mica de personalitat pròpia, canviarem el clàssic disc de quatre colors pel logotip del navegador Google Chrome, emprant els seus quatre colors com a tecles del disc.
+                </p>
+                <p>
+                    <a class="btn btn-lg btn-info"><i class="fa fa-github fa-lg"></i>  Ver en Github</a>
+                    <a class="btn btn-lg btn-success btn-"><i class="fa fa-download fa-lg"></i>  Descargar</a>
+                </p>
+            </div>
+            
+
+            <br><hr><br>
+
+
+<!-- Indice -->
+
+    <div class='jumbotron'>
+        <h1 class="text-muted">Taula de continguts</h1>
+        <ul>
+            <li><h3><a href='#preparacion-del-entorno'>Preparacion del entorno</a><h3></li>
+
+<li><h3><a href='#bouncing-ball'>Bouncing ball</a><h3></li>
+
+<li><h3><a href='#proyecto:-planificacion-y-requisitos'>Proyecto: Planificacion y requisitos</a><h3></li>
+
+
+        </ul>
+    </div>
+
+
+<!-- Aquí empiezan los artículos -->
+
+<div id='preparacion-del-entorno' class='featurette data-sr'>
+    <h1>Preparació de l'entorn</h1>
+<h2>Instal·lació de l'entorn</h2>
+<p>Primer hem descarregat l'script de la pàgina web i l'hem executat, instal·lant així l'entorn. A més hem afegit les variables del sistema, i les hem fet permanents.</p>
+<p><img class="img-responsive center-block" alt="Variables del sistema" src="imgs/1/var.png" /></p>
+<h2>Compilació dels exemples</h2>
+<p>Hem descarregat els exemples i hem vist que alguns que hi ha en la <a href="libdns.devkitpro.org/examples.html">pàgina web</a> no estan als exemples descarregats, com ara l'exemple capture.
+Als exemples descarregats també hi han alguns que no estan a la web.</p>
+<h2>Compilació dels exemples</h2>
+<p>Anem a provar ara alguns dels exemples a ambdós emuladors per tal de comprovar les possibles diferències entre els mateixos.</p>
+<h3>ds_motion</h3>
+<p><img class="img-responsive center-block" alt="ds_motion" src="imgs/1/ds_motion.png" /></p>
+<h3>hello_world</h3>
+<p><img class="img-responsive center-block" alt="hello_world" src="imgs/1/hello_world.png" /></p>
+<p>Tots els exemples que s'han provat a DesMuMe s'han executat sense cap tipus de problema, no obstant, <strong>alguns han fallat a l'emulador no$gba</strong>. Com ara, l'exemple <em>16bit_color_bmp.nds.</em></p>
+<h2>Instal·lació a Windows</h2>
+<p>Per a la instal·lació a una màquina amb sistema operatiu <strong>Windows 7</strong>, el procés ha sigut simple. Des de la mateixa pàgina web d'on hem baixat el devkitpro per a Linux, s'ha baixat l'arxiu .exe corresponent a la versió 1.5.4. Una vegada baixat, s'ha executat seguint els passos de l'assitent d'instal·lació sense cap tipus de problema.</p>
+<p><img class="img-responsive center-block" alt="Asistent" src="imgs/1/asistent.png" /></p>
+<p>Una vegada instal·lat, simplement cal anar a la carpeta corresponent <code>devkitpro\examples\nds</code> i compilar els exemples mitjançant l'ordre <code>make</code>.</p>
+<p><img class="img-responsive center-block" alt="Compilació" src="imgs/1/compilacio.png" /></p>
+</div>
+<br><hr><br>
+
+<div id='bouncing-ball' class='featurette data-sr'>
+    
+</div>
+<br><hr><br>
+
+<div id='proyecto:-planificacion-y-requisitos' class='featurette data-sr'>
+    <h1>'Chrome says': Planificación y requisitos del proyecto</h1>
+<h2>Descripció básica</h2>
+<p>El joc és l'adaptació del clàssic “Simon says” a la consola Nintendo DS. No obstant, i per tal de dotar al projecte d'una mica de personalitat pròpia, canviarem el clàssic disc de quatre colors pel logotip del navegador Google Chrome, emprant els seus quatre colors com a tecles del disc.</p>
+<h2>Mecàniques</h2>
+<p>Mentre que la característica principal del joc clàssic consisteix en anar fent més llarga i difícil la combinació de tecles que el jugador té que polsar, Chrome says afegirà també la característica d'un compte enrere. Cada vegada que el jugador faça un error, el comptador baixarà 7 segons, mentre que cada vegada que encerte, pujarà 4 segons (els temps no són definitius). Al ser un temporitzador, el temps anirà baixant segon a segon, l'objectiu del jugador és encertar la seqüència que se li ha dit al menor temps possible amb l'objectiu d'evitar que el comptador arribe a 0.</p>
+<h2>Un exemple d'una partida</h2>
+<p>El jugador iniciarà el joc, en la pantalla inferior (tàctil) es mostrarà una imatge, i en la superior un text associat a la mateixa. Si el jugador polsa el botó A (pot variar respecte a la versió final) passarà a la següent imatge i text associat. Amb aquestes imatges (no més de 2 o 3) s'informarà al jugador del context del joc, i del per què del disc amb forma del logo de Chrome: La nostra mare vol gastar el nostre ordinador però, desgraciats de nosaltres, ens hem oblidat d'esborrar l'historial de navegació! Per tal d'evitar que puga tindre accés al mateix, deguem fer el que ens diga Chrome, repetint les seqüències que ens indique. Tenim que aguantar el major temps possible per tal de que no descobrisca la veritat!
+Després d'aquesta introducció passarem al joc en sí mateix. A la pantalla superior es mostrarà el temporitzador, mentre que a la inferior trobarem el disc de Chrome amb el que tindrem que interactuar. El propi joc ens mostrarà a la pantalla inferior la seqüència que tenim que reproduir, il·luminant les tecles que tenim que polsar en l'ordre al que tenim que fer-ho. Immediatament després el jugador deurà tornar a polsar les mateixes tecles en l'ordre determinat. Si encerta, a la pantalla superior es sumaran els segons corresponents al temporitzador, si falla, es restaran.</p>
+<h2>Posibles ampliacions</h2>
+<p>Com a ampliacions, en cas d'acabar el projecte i que ens sobre temps, es podria afegir un menú principal amb altres opcions, a més de la de jugar, com ara un ranking dels millors resultats, segons el número de seqüències correctes fetes fins el moment de que el comptador arribe a 0.</p>
+<h2>Planificació</h2>
+<p>Cerca d'informació d'aplicacions semblants.</p>
+<ul>
+<li>
+<p>Creació de les imatges i sprites que es gastaran al llarg del joc.</p>
+</li>
+<li>
+<p>Cerca dels sons de les tecles.</p>
+</li>
+<li>
+<p>Temporitzador i algorisme de modificacions de temps.</p>
+</li>
+<li>
+<p>Desenvolupament de la interacció amb les tecles (il·luminació al polsar, reproducció de so al posar).</p>
+</li>
+<li>
+<p>Algorisme de creació de seqüències aleatòries.</p>
+</li>
+<li>
+<p>Proves globals de l'aplicació.</p>
+</li>
+</ul>
+</div>
+<br><hr><br>
+
+
+<!-- Pie de página -->
+        <!-- Highlighter -->
+        <script>hljs.initHighlightingOnLoad();</script>
+
+    </body>
+</html>

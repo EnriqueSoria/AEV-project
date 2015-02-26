@@ -1,0 +1,64 @@
+# -*- coding: utf-8 -*- 
+
+'''
+    Este script toma ficheros .md y los convierte en una página web HTML5.
+
+    Instalar markdown: pip install markdown
+'''
+
+# Dependencias
+from os import listdir as ls
+import markdown
+import codecs
+
+# Constantes
+nombre_html = 'blog.html'
+
+# El contenedor que envuelve a un artículo
+contenedor = '''
+<div id='%s' class='featurette data-sr'>
+    %s
+</div>
+'''
+
+# Montamos el html
+html = '''
+{cabecera}
+
+<!-- Aquí empiezan los artículos -->
+{blog}
+
+<!-- Pie de página -->
+{pie_de_pagina}'''.format(
+    cabecera = read('header.html'),
+    blog = create_blog(),
+    pie_de_pagina = read('footer.html')
+)
+
+# Cabecera 
+def read(file):
+    inp = codecs.open(file, mode="r", encoding="utf-8")
+    return inp.read()
+
+# Blog
+def create_blog():
+    blog = ''
+    for fichero in sorted([f for f in ls('.') if f.endswith('.md')]):
+
+        # Abrimos el fichero y lo leemos
+        inp = codecs.open(fichero, mode="r", encoding="utf-8")
+        md = inp.read()
+
+        # Preparamos el html
+        data = ( fichero[3:-3], markdown.markdown(md)
+        blog += contenedor % data
+
+    return blog
+
+# Guardamos el html
+output_file = codecs.open("blog.html", "w+", 
+                          encoding="utf-8", 
+                          errors="xmlcharrefreplace"
+)
+output_file.write(html)
+
