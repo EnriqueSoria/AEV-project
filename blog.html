@@ -112,12 +112,18 @@
     <h1>Preparació de l'entorn</h1>
 <h2>Instal·lació de l'entorn</h2>
 <p>Primer hem descarregat l'script de la pàgina web i l'hem executat, instal·lant així l'entorn. A més hem afegit les variables del sistema, i les hem fet permanents.</p>
+<h3>Instruccions necessaries</h3>
+<pre><code>wget -O devkit.pl http://downloads.sourceforge.net/project/devkitpro/Automated%20Installer/devkitARMupdate.pl?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fdevkitpro%2Ffiles%2FAutomated%2520Installer%2F&amp;ts=1425297393&amp;use_mirror=cznic
+sudo perl devkit.pl
+export DEVKITPRO=~/nrikee/devkitPro
+export DEVKITARM=${DEVKITPRO}/devkitARM
+</code></pre>
 <p><img class="img-responsive center-block" alt="Variables del sistema" src="imgs/1/var.png" /></p>
 <h2>Compilació dels exemples</h2>
 <p>Hem descarregat els exemples i hem vist que alguns que hi ha en la <a href="libdns.devkitpro.org/examples.html">pàgina web</a> no estan als exemples descarregats, com ara l'exemple capture.
 Als exemples descarregats també hi han alguns que no estan a la web.</p>
 <h2>Compilació dels exemples</h2>
-<p>Anem a provar ara alguns dels exemples a ambdós emuladors per tal de comprovar les possibles diferències entre els mateixos.</p>
+<p>Anem a provar ara alguns dels exemples a ambdós emuladors per tal de comprovar les possibles diferències entre els mateixos, compilant-los amb l'ordre <code>make</code>.</p>
 <h3>ds_motion</h3>
 <p><img class="img-responsive center-block" alt="ds_motion" src="imgs/1/ds_motion.png" /></p>
 <h3>hello_world</h3>
