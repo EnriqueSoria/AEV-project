@@ -17,20 +17,18 @@ nombre_html = 'blog.html'
 
 # Índice
 indice = '''
-    <div class='jumbotron'>
-        <h1 class="text-muted">Taula de continguts</h1>
-        <ul>
-            %s
-        </ul>
-    </div>
+    <h2 class="text-muted">Taula de continguts</h1>
+    <ul>
+        %s
+    </ul>
 '''
-indice_elemento = '''<li><h3><a href='#%s'>%s</a><h3></li>\n'''
+indice_elemento = '''<li><h4><a href='#%s'>%s</a><h3></li>\n'''
 
 # El contenedor que envuelve a un artículo
 contenedor = '''
-<div id='%s' class='featurette data-sr'>
-    %s
-</div>
+    <div id='%s' class='featurette data-sr'>
+        %s
+    </div>
 <br><hr><br>
 '''
 
@@ -68,11 +66,20 @@ blog, lista = create_blog(lista)
 html = u'''
 {cabecera}
 
-<!-- Indice -->
-{indices}
 
-<!-- Aquí empiezan los artículos -->
-{blog}
+<!-- Cuerpo -->
+<div id="sidebar" class="row">
+
+    <!-- Indice -->
+    <div class="col-md-3">
+        {indices}
+    </div>
+
+    <!-- Aquí empiezan los artículos -->
+    <div class="col-md-9">
+        {blog}
+    </div>
+</div>
 
 <!-- Pie de página -->
 {pie_de_pagina}'''.format(

@@ -57,9 +57,9 @@
               <!-- A la esquerra -->
               <ul class="nav navbar-nav">
                 <li><a href="./index.html">Inicio</a></li>
-                <li><a href="./galeria.html">Capturas</a></li>
-                <li><a href="./descripcion.html">Descripción</a></li>
                 <li><a href="./blog.html">Blog de desarollo</a></li>
+                <li><a href="./galeria.html">Capturas</a></li>
+                <li><a href="./about.html">Acerca de</a></li>
               </ul>
                
               <!-- A la dreta -->
@@ -90,26 +90,31 @@
             <br><hr><br>
 
 
-<!-- Indice -->
 
-    <div class='jumbotron'>
-        <h1 class="text-muted">Taula de continguts</h1>
-        <ul>
-            <li><h3><a href='#practica-1:-preparacio-de-l'entorn'>Practica 1: Preparacio de l'entorn</a><h3></li>
+<!-- Cuerpo -->
+<div id="sidebar" class="row">
 
-<li><h3><a href='#practica-2:-bouncing-ball'>Practica 2: Bouncing ball</a><h3></li>
+    <!-- Indice -->
+    <div class="col-md-3">
+        
+    <h2 class="text-muted">Taula de continguts</h1>
+    <ul>
+        <li><h4><a href='#practica-1:-preparacio-de-l'entorn'>Practica 1: Preparacio de l'entorn</a><h3></li>
 
-<li><h3><a href='#proyecto:-planificacion-y-requisitos'>Proyecto: Planificacion y requisitos</a><h3></li>
+<li><h4><a href='#practica-2:-bouncing-ball'>Practica 2: Bouncing ball</a><h3></li>
+
+<li><h4><a href='#proyecto:-planificacion-y-requisitos'>Proyecto: Planificacion y requisitos</a><h3></li>
 
 
-        </ul>
+    </ul>
+
     </div>
 
-
-<!-- Aquí empiezan los artículos -->
-
-<div id='practica-1:-preparacio-de-l'entorn' class='featurette data-sr'>
-    <h1>Preparació de l'entorn</h1>
+    <!-- Aquí empiezan los artículos -->
+    <div class="col-md-9">
+        
+    <div id='practica-1:-preparacio-de-l'entorn' class='featurette data-sr'>
+        <h1>Practica 1: Preparacio de l'entorn</h1>
 <h2>Instal·lació de l'entorn</h2>
 <p>Primer hem descarregat l'script de la pàgina web i l'hem executat, instal·lant així l'entorn. A més hem afegit les variables del sistema, i les hem fet permanents.</p>
 <h3>Instruccions necessaries</h3>
@@ -134,16 +139,16 @@ Als exemples descarregats també hi han alguns que no estan a la web.</p>
 <p><img class="img-responsive center-block" alt="Asistent" src="imgs/1/asistent.png" /></p>
 <p>Una vegada instal·lat, simplement cal anar a la carpeta corresponent <code>devkitpro\examples\nds</code> i compilar els exemples mitjançant l'ordre <code>make</code>.</p>
 <p><img class="img-responsive center-block" alt="Compilació" src="imgs/1/compilacio.png" /></p>
-</div>
+    </div>
 <br><hr><br>
 
-<div id='practica-2:-bouncing-ball' class='featurette data-sr'>
-    
-</div>
+    <div id='practica-2:-bouncing-ball' class='featurette data-sr'>
+        <h1>Practica 2: Bouncing ball</h1>
+    </div>
 <br><hr><br>
 
-<div id='proyecto:-planificacion-y-requisitos' class='featurette data-sr'>
-    <h1>'Chrome says': Planificación y requisitos del proyecto</h1>
+    <div id='proyecto:-planificacion-y-requisitos' class='featurette data-sr'>
+        <h1>Projecte: Planificació i requisits</h1>
 <h2>Descripció básica</h2>
 <p>El joc és l'adaptació del clàssic “Simon says” a la consola Nintendo DS. No obstant, i per tal de dotar al projecte d'una mica de personalitat pròpia, canviarem el clàssic disc de quatre colors pel logotip del navegador Google Chrome, emprant els seus quatre colors com a tecles del disc.</p>
 <h2>Mecàniques</h2>
@@ -175,13 +180,31 @@ Després d'aquesta introducció passarem al joc en sí mateix. A la pantalla sup
 <p>Proves globals de l'aplicació.</p>
 </li>
 </ul>
-</div>
+    </div>
 <br><hr><br>
 
+    </div>
+</div>
 
 <!-- Pie de página -->
         <!-- Highlighter -->
         <script>hljs.initHighlightingOnLoad();</script>
+        
+        <!-- Sidebar -->
+        <script>
+            var $sidebar   =    $("#sidebar"),
+            $window    = $(window),
+            offset     = $sidebar.offset(),
+            topPadding = 15;
+
+        $window.scroll(function() {
+            if ($window.scrollTop() > offset.top) {
+                $sidebar.addClass('fixed');
+            } else {
+                $sidebar.removeClass('fixed');
+            }
+        });
+        </script>
 
     </body>
 </html>
