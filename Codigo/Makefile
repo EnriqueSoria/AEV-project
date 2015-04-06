@@ -24,8 +24,8 @@ BUILD    := build
 SOURCES  := source
 INCLUDES := include
 DATA     :=
-GRAPHICS :=
-AUDIO    :=
+GRAPHICS := gfx
+AUDIO    := maxmod_data
 ICON     :=
 
 # specify a directory which contains the nitro filesystem
@@ -51,7 +51,7 @@ LDFLAGS   = -specs=ds_arm9.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 #---------------------------------------------------------------------------------
 # any extra libraries we wish to link with the project (order is important)
 #---------------------------------------------------------------------------------
-LIBS := -lnds9
+LIBS := -lmm9 -lnds9
 
 # automatigically add libraries for NitroFS
 ifneq ($(strip $(NITRO)),)
@@ -175,11 +175,18 @@ $(OUTPUT).elf: $(OFILES)
 $(OFILES): $(SOUNDBANK)
 
 #---------------------------------------------------------------------------------
+# GRIT rule for converting the PNG files
+#---------------------------------------------------------------------------------
+%.s %.h : %.png %.grit
+#---------------------------------------------------------------------------------
+	@grit $< -fts
+
+#---------------------------------------------------------------------------------
 # rule to build solution from music files
 #---------------------------------------------------------------------------------
 $(SOUNDBANK) : $(MODFILES)
 #---------------------------------------------------------------------------------
-	mmutil $^ -d -o$@ -hsoundbank.h
+	mmutil $^ -d -osoundbank.bin -hsoundbank.h
 
 #---------------------------------------------------------------------------------
 %.bin.o: %.bin
