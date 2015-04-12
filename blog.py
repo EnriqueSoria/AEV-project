@@ -17,12 +17,12 @@ nombre_html = 'blog.html'
 
 # Índice
 indice = '''
-    <h2 class="text-muted">Taula de continguts</h1>
+    <h1 class="text-muted" >Taula de continguts</h1>
     <ul>
         %s
     </ul>
 '''
-indice_elemento = '''<li><h4><a href='#%s'>%s</a><h3></li>\n'''
+indice_elemento = '''<li><h4><bold><a href='#%s'>%s</a></bold><h3></li>\n'''
 
 # El contenedor que envuelve a un artículo
 contenedor = '''
@@ -68,15 +68,16 @@ html = u'''
 
 
 <!-- Cuerpo -->
-<div id="sidebar" class="row">
+<div id="sidebar" class="row jumbotron">
 
     <!-- Indice -->
-    <div class="col-md-3">
+    <div class="col-md-8">
         {indices}
     </div>
-
+</div>
+<div class="row">
     <!-- Aquí empiezan los artículos -->
-    <div class="col-md-9">
+    <div class="col-md-12">
         {blog}
     </div>
 </div>
