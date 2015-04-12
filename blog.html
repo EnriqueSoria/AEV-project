@@ -103,7 +103,7 @@
 
 <li><h4><a href='#practica-2:-bouncing-ball'>Practica 2: Bouncing ball</a><h3></li>
 
-<li><h4><a href='#proyecto:-planificacion-y-requisitos'>Proyecto: Planificacion y requisitos</a><h3></li>
+<li><h4><a href='#practica-3:-entrada-i-sortida-de-dades'>Practica 3: Entrada i sortida de dades</a><h3></li>
 
 <li><h4><a href='#practica-4:-audio-amb-maxmod'>Practica 4: Audio amb Maxmod</a><h3></li>
 
@@ -145,43 +145,86 @@ Als exemples descarregats també hi han alguns que no estan a la web.</p>
 <br><hr><br>
 
     <div id='practica-2:-bouncing-ball' class='featurette data-sr'>
-        <h1>Practica 2: Bouncing ball</h1>
+        <h1>Pràctica 2:  Accés a la informació en el hardware</h1>
+<h2>1. Accés al sistema</h2>
+<p>Per tal d'accedir a les dades del sistema, simplement hem tingut que incloure la capçalera
+<code>system.h</code> de libnds, i després accedir a l'estructura PersonalData des d'on poden extraure el nom
+d'usuari, aniversari, color del tema, etc. Després simplement hi ha que mostrar eixes dades en
+pantalla.</p>
+<p><img class="img-responsive center-block" alt="Imatge 1: Sortida del programa" src="imgs/2/1.png" /></p>
+<h2>2. Funcions relacionades amb el pas del temps</h2>
+<p>A aquest apartat ens donen tres funcions, de tres exemples, i ens pregunten sobre elles o els seus
+arguments. Passem a veure les funcions i resoldre les preguntes pas a pas.</p>
+<pre><code>timerStart(0, ClockDivider_1024, 0, NULL);
+</code></pre>
+<p>Aquesta funció inicialitza un temporitzador que cridarà al seu últim argument (en aquest cas no)
+segons la freqüència que se li indique. El segon argument indica el canal del temporitzador, mentre que el tercer són el nombre de ticks que deuen passar fins que es produïsca l'overflow.</p>
+<pre><code>timerStart(0, ClockDivider_1024,TIMER_FREQ_1024(5), timerCallBack);
+</code></pre>
+<p>En aquest cas la novetat són els dos últims arguments: el tercer indica que es cridarà al quart una vegada cada cinc segons. El quart, com ja hem dit, serà la funció a la que cridarà el timer, en aquest cas, cada cinc segons.</p>
+<p>Per acabar se'ns pregunta sobre l'exemple RealTimeClock. En concret, quines són les funcions que es gasten per endevinar l'hora i la data.</p>
+<p>Si mirem el codi, podem observar que aquestes són les línies concretes on s'extrau la informació del sistema:</p>
+<pre><code>time_t unixTime = time(NULL);
+struct tm* timeStruct = gmtime((const time_t *)&amp;unixTime);
+
+hours = timeStruct-&gt;tm_hour;
+minutes = timeStruct-&gt;tm_min;
+seconds = timeStruct-&gt;tm_sec;
+
+day = timeStruct-&gt;tm_mday;
+month = timeStruct-&gt;mon;
+year = timeStruct-&gt;tm_year+1900;
+</code></pre>
+<h2>3. Gestió de l'entrada d'usuari</h2>
+<p>En aquest apartat se'ns demana executar cinc exemples, anem a mostrar captures dels mateixos i explicar la seua funcionalitat.</p>
+<h3>keyboard_async</h3>
+<p><img class="img-responsive center-block" alt="Imatge 2: Sortida keyboard_async" src="imgs/2/2.png" />
+Aquest exemple no és més que un simple teclat sense cap tipus de funcionalitat llevat de poder escriure a la pròpia pantalla de la NDS.</p>
+<h3>keyboard_stdin</h3>
+<p><img class="img-responsive center-block" alt="Imatge 3: Sortida keyboard_stdin" src="imgs/2/3.png" />
+Al contrari que l'exemple anterior, aquest és un programa que ens pregunta el nostre nom. Una vegada l'introduïm amb el teclat (el mateix que a l'exemple anterior) aquest desapareix i ens contesta <code>Hello (nom)</code>.</p>
+<h3>touch_area</h3>
+<p><img class="img-responsive center-block" alt="Imatge 4: Sortida touch_area" src="imgs/2/4.png" />
+Aquest exemple ens diu el punt que hem tocat de la pantalla tàctil, així com la pressió i, depenent de l'àrea, ens diu si hem tocat la pantalla amb el dit o l'estilus (en aquest cas ratolí ja que és un emulador).</p>
+<h3>touch_look</h3>
+<p><img class="img-responsive center-block" alt="Imatge 5: Sortida touch_look" src="imgs/2/5.png" />
+Ací estem a un entorn 3D pel qual podem rotar la càmera (però no desplaçar-la) tocant la pantalla inferior. Si llisquem cap a l'esquerra, la càmera gira cap a l'esquerra, etc. El moviment és completament lliure.</p>
+<h3>touch_test</h3>
+<p><img class="img-responsive center-block" alt="Imatge 6: Sortida touch_test" src="imgs/2/6.png" /></p>
+<p>Per acabar, aquest últim exemple ens diu les coordenades on hem tocat la pantalla tàctil i, a més a més, deixa l'sprite d'un punt roig a eixes coordenades. És molt similar a l'exemple <code>touch_area</code> llevat del punt roig i que, aquest, no ens diu la pressió ni si hem tocat amb el dit o no.</p>
+<h2>4. Treball autònom</h2>
+<p>Com a treball autònom se'ns demana crear un programa on l'usuari puga triar quines dades emmagatzemades en la consola, vol visualitzar.
+Adjuntem el codi font i l'arxiu Makefile amb aquest exercici resolt. Ací podem veure una captura del programa en execució.</p>
+<p><img class="img-responsive center-block" alt="Imatge 7: Sortida del treball autònom" src="imgs/2/7.png" /></p>
     </div>
 <br><hr><br>
 
-    <div id='proyecto:-planificacion-y-requisitos' class='featurette data-sr'>
-        <h1>Projecte: Planificació i requisits</h1>
-<h2>Descripció básica</h2>
-<p>El joc és l'adaptació del clàssic “Simon says” a la consola Nintendo DS. No obstant, i per tal de dotar al projecte d'una mica de personalitat pròpia, canviarem el clàssic disc de quatre colors pel logotip del navegador Google Chrome, emprant els seus quatre colors com a tecles del disc.</p>
-<h2>Mecàniques</h2>
-<p>Mentre que la característica principal del joc clàssic consisteix en anar fent més llarga i difícil la combinació de tecles que el jugador té que polsar, Chrome says afegirà també la característica d'un compte enrere. Cada vegada que el jugador faça un error, el comptador baixarà 7 segons, mentre que cada vegada que encerte, pujarà 4 segons (els temps no són definitius). Al ser un temporitzador, el temps anirà baixant segon a segon, l'objectiu del jugador és encertar la seqüència que se li ha dit al menor temps possible amb l'objectiu d'evitar que el comptador arribe a 0.</p>
-<h2>Un exemple d'una partida</h2>
-<p>El jugador iniciarà el joc, en la pantalla inferior (tàctil) es mostrarà una imatge, i en la superior un text associat a la mateixa. Si el jugador polsa el botó A (pot variar respecte a la versió final) passarà a la següent imatge i text associat. Amb aquestes imatges (no més de 2 o 3) s'informarà al jugador del context del joc, i del per què del disc amb forma del logo de Chrome: La nostra mare vol gastar el nostre ordinador però, desgraciats de nosaltres, ens hem oblidat d'esborrar l'historial de navegació! Per tal d'evitar que puga tindre accés al mateix, deguem fer el que ens diga Chrome, repetint les seqüències que ens indique. Tenim que aguantar el major temps possible per tal de que no descobrisca la veritat!
-Després d'aquesta introducció passarem al joc en sí mateix. A la pantalla superior es mostrarà el temporitzador, mentre que a la inferior trobarem el disc de Chrome amb el que tindrem que interactuar. El propi joc ens mostrarà a la pantalla inferior la seqüència que tenim que reproduir, il·luminant les tecles que tenim que polsar en l'ordre al que tenim que fer-ho. Immediatament després el jugador deurà tornar a polsar les mateixes tecles en l'ordre determinat. Si encerta, a la pantalla superior es sumaran els segons corresponents al temporitzador, si falla, es restaran.</p>
-<h2>Posibles ampliacions</h2>
-<p>Com a ampliacions, en cas d'acabar el projecte i que ens sobre temps, es podria afegir un menú principal amb altres opcions, a més de la de jugar, com ara un ranking dels millors resultats, segons el número de seqüències correctes fetes fins el moment de que el comptador arribe a 0.</p>
-<h2>Planificació</h2>
-<p>Cerca d'informació d'aplicacions semblants.</p>
-<ul>
-<li>
-<p>Creació de les imatges i sprites que es gastaran al llarg del joc.</p>
-</li>
-<li>
-<p>Cerca dels sons de les tecles.</p>
-</li>
-<li>
-<p>Temporitzador i algorisme de modificacions de temps.</p>
-</li>
-<li>
-<p>Desenvolupament de la interacció amb les tecles (il·luminació al polsar, reproducció de so al posar).</p>
-</li>
-<li>
-<p>Algorisme de creació de seqüències aleatòries.</p>
-</li>
-<li>
-<p>Proves globals de l'aplicació.</p>
-</li>
-</ul>
+    <div id='practica-3:-entrada-i-sortida-de-dades' class='featurette data-sr'>
+        <h1>Pràctica 3: Entrada i sortida de dades</h1>
+<h2>1. Gestió dels controls</h2>
+<p>En aquest primer exercici se'ns demana que desenvolupem un programa que ens comunique l'estat dels tretze botons de la consola (si estan premuts o no).
+El funcionament de dit programa és simple, ja que tenim una funció <code>keysDown()</code> que ens indica si s'ha premut un botó. A partir d'ahí simplement cal mostrar per pantalla quins ho han fet, i quins no. Adjuntem el codi font junt a aquesta memòria a la carpeta ex1P3.
+<img class="img-responsive center-block" alt="Imatge 1: Sortida del programa ex1P3" src="imgs/3/1.png" /></p>
+<h2>2. Ús avançat del text a la pantalla</h2>
+<p>A aquest segon apartat ens donen cinc exemples que hem d'executar i observar per tal d'indicar el seu funcionament. Passem a mostrar a continuació les captures dels programes executant-se i les seues explicacions:</p>
+<h3>custom_font</h3>
+<p><img class="img-responsive center-block" alt="Imatge 2: Execució del programa custom_font" src="imgs/3/2.png" />
+Aquest exemple només ens mostra una tipografia diferent a l'hora de mostrar text en pantalla. No podem interactuar en ell de cap manera, però està pensat per a poder observar el codi i així saber com incloure una nova tipografia.</p>
+<h3>print_both_screens</h3>
+<p><img class="img-responsive center-block" alt="Imatge 3: Execució del programa print_both_screens" src="imgs/3/3.png" />
+L'única interacció d'aquest programa és que ens marca les coordenades del punt on hem tocat la pantalla tàctil. A la pantalla superior té un text fixe que no varia. La utilitat d'aquest programa és aprendre a escriure text a ambdues pantalles.</p>
+<h3>rotation</h3>
+<p><img class="img-responsive center-block" alt="Imatge 4: Execució del programa rotation" src="imgs/3/4.png" />
+Mitjançant els botons, a aquest programa, podrem desplaçar i deformar la imatge de la pantalla superior.</p>
+<h3>rotscale_text</h3>
+<p><img class="img-responsive center-block" alt="Imatge 5: Execució del programa rotscale_text" src="imgs/3/5.png" /></p>
+<h3>console_windows</h3>
+<p><img class="img-responsive center-block" alt="Imatge 6: Execució del programa console_windows" src="imgs/3/6.png" />
+Aquest simple programa divideix la pantalla tàctil en dos. Si toquem la part esquerra, ens mostra la coordenada Y a la part esquerra, si toquem la dreta, ens mostra la mateixa coordenada a la dreta.</p>
+<h2>3. Sistema d'arxius</h2>
+<p>Aquest últim exercici ens demana executar els dos exemples de sistemes d'arxius nitrofs i fat, i fer captures de l'execució dels mateixos.
+<img class="img-responsive center-block" alt="Imatge 7: Execució de l'exemple fat" src="imgs/3/7.png" />
+<img class="img-responsive center-block" alt="Imatge 8: Execució de l'exemple nitrofs" src="imgs/3/8.png" /></p>
     </div>
 <br><hr><br>
 
