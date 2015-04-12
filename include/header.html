@@ -30,21 +30,44 @@
         <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
         <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-        }
-        a, p {
-            font-size: 120%;
-        }
-        code {
-            font-size: 140%;
-        }
-        a, p, h1, h2, h3, h4, h5 {
-            font-weight: lighter;
-        }
-        code {
-            font-family: 'Anonymous Pro', serif;
-        }
+            body {
+                font-family: 'Open Sans', sans-serif;
+            }
+            a, p {
+                font-size: 120%;
+            }
+            code {
+                font-family: 'Anonymous Pro', serif;
+                font-size: 140%;
+            }
+            a, p, h1, h2, h3, h4, h5 {
+                font-weight: lighter;
+            }
+            .cd-container {
+              width: 90%;
+              max-width: 768px;
+              margin: 2em auto;
+            }
+            .cd-container::after {
+              /* clearfix */
+              content: '';
+              display: table;
+              clear: both;
+            }
+            .cd-top.cd-is-visible {
+              /* the button becomes visible */
+              visibility: visible;
+              opacity: 1;
+            }
+            .cd-top.cd-fade-out {
+              /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+              opacity: .5;
+            }
+            .wordWrap {
+                word-wrap: break-word;      /* IE 5.5-7 */
+                white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+                white-space: pre-wrap;      /* current browsers */
+            }
         </style>
         
         <!-- Unused fonts
@@ -97,8 +120,8 @@
                
               <!-- A la dreta -->
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="https://github.com/EnriqueSoria/AEV-project/archive/master.zip"><i class="fa fa-download fa-lg"></i> Descargar</a></li>
-                <li><a href="https://github.com/EnriqueSoria/AEV-project"><i class="fa fa-github fa-lg"></i> Ver en github</a></li>
+                <li><a href="https://github.com/EnriqueSoria/AEV-project/archive/master.zip"><i class="fa fa-download fa-lg"></i> Descarregar</a></li>
+                <li><a href="https://github.com/EnriqueSoria/AEV-project"><i class="fa fa-github fa-lg"></i> Veure a github</a></li>
               </ul>
             </div>
 
@@ -114,8 +137,8 @@
                 <p class="lead">El joc és l'adaptació del clàssic “Simon says” a la consola Nintendo DS. No obstant, i per tal de dotar al projecte d'una mica de personalitat pròpia, canviarem el clàssic disc de quatre colors pel logotip del navegador Google Chrome, emprant els seus quatre colors com a tecles del disc.
                 </p>
                 <p>
-                    <a href="https://github.com/EnriqueSoria/AEV-project" class="btn btn-lg btn-info"><i class="fa fa-github fa-lg"></i>  Ver en Github</a>
-                    <a href="https://github.com/EnriqueSoria/AEV-project/archive/master.zip" class="btn btn-lg btn-success btn-succes"><i class="fa fa-download fa-lg"></i>  Descargar</a>
+                    <a href="https://github.com/EnriqueSoria/AEV-project" class="btn btn-lg btn-info"><i class="fa fa-github fa-lg"></i>  Veure a Github</a>
+                    <a href="https://github.com/EnriqueSoria/AEV-project/archive/master.zip" class="btn btn-lg btn-success btn-succes"><i class="fa fa-download fa-lg"></i>  Descarregar</a>
                 </p>
             </div>
             

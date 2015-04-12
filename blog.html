@@ -31,21 +31,44 @@
         <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
         <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-        }
-        a, p {
-            font-size: 120%;
-        }
-        code {
-            font-size: 140%;
-        }
-        a, p, h1, h2, h3, h4, h5 {
-            font-weight: lighter;
-        }
-        code {
-            font-family: 'Anonymous Pro', serif;
-        }
+            body {
+                font-family: 'Open Sans', sans-serif;
+            }
+            a, p {
+                font-size: 120%;
+            }
+            code {
+                font-family: 'Anonymous Pro', serif;
+                font-size: 140%;
+            }
+            a, p, h1, h2, h3, h4, h5 {
+                font-weight: lighter;
+            }
+            .cd-container {
+              width: 90%;
+              max-width: 768px;
+              margin: 2em auto;
+            }
+            .cd-container::after {
+              /* clearfix */
+              content: '';
+              display: table;
+              clear: both;
+            }
+            .cd-top.cd-is-visible {
+              /* the button becomes visible */
+              visibility: visible;
+              opacity: 1;
+            }
+            .cd-top.cd-fade-out {
+              /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+              opacity: .5;
+            }
+            .wordWrap {
+                word-wrap: break-word;      /* IE 5.5-7 */
+                white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+                white-space: pre-wrap;      /* current browsers */
+            }
         </style>
         
         <!-- Unused fonts
@@ -98,8 +121,8 @@
                
               <!-- A la dreta -->
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="https://github.com/EnriqueSoria/AEV-project/archive/master.zip"><i class="fa fa-download fa-lg"></i> Descargar</a></li>
-                <li><a href="https://github.com/EnriqueSoria/AEV-project"><i class="fa fa-github fa-lg"></i> Ver en github</a></li>
+                <li><a href="https://github.com/EnriqueSoria/AEV-project/archive/master.zip"><i class="fa fa-download fa-lg"></i> Descarregar</a></li>
+                <li><a href="https://github.com/EnriqueSoria/AEV-project"><i class="fa fa-github fa-lg"></i> Veure a github</a></li>
               </ul>
             </div>
 
@@ -115,8 +138,8 @@
                 <p class="lead">El joc és l'adaptació del clàssic “Simon says” a la consola Nintendo DS. No obstant, i per tal de dotar al projecte d'una mica de personalitat pròpia, canviarem el clàssic disc de quatre colors pel logotip del navegador Google Chrome, emprant els seus quatre colors com a tecles del disc.
                 </p>
                 <p>
-                    <a href="https://github.com/EnriqueSoria/AEV-project" class="btn btn-lg btn-info"><i class="fa fa-github fa-lg"></i>  Ver en Github</a>
-                    <a href="https://github.com/EnriqueSoria/AEV-project/archive/master.zip" class="btn btn-lg btn-success btn-succes"><i class="fa fa-download fa-lg"></i>  Descargar</a>
+                    <a href="https://github.com/EnriqueSoria/AEV-project" class="btn btn-lg btn-info"><i class="fa fa-github fa-lg"></i>  Veure a Github</a>
+                    <a href="https://github.com/EnriqueSoria/AEV-project/archive/master.zip" class="btn btn-lg btn-success btn-succes"><i class="fa fa-download fa-lg"></i>  Descarregar</a>
                 </p>
             </div>
             
@@ -133,13 +156,15 @@
         
     <h1 class="text-muted" >Taula de continguts</h1>
     <ul>
-        <li><h4><bold><a href='#practica-1:-preparacio-de-l'entorn'>Practica 1: Preparacio de l'entorn</a></bold><h4></li>
+        <li><h4><a href="#practica-1:-preparacio-de-l'entorn">Practica 1: Preparacio de l'entorn</a></bold><h4></li>
 
-<li><h4><bold><a href='#practica-2:-bouncing-ball'>Practica 2: Bouncing ball</a></bold><h4></li>
+<li><h4><a href="#practica-2:-bouncing-ball">Practica 2: Bouncing ball</a></bold><h4></li>
 
-<li><h4><bold><a href='#practica-3:-entrada-i-sortida-de-dades'>Practica 3: Entrada i sortida de dades</a></bold><h4></li>
+<li><h4><a href="#practica-3:-entrada-i-sortida-de-dades">Practica 3: Entrada i sortida de dades</a></bold><h4></li>
 
-<li><h4><bold><a href='#practica-4:-audio-amb-maxmod'>Practica 4: Audio amb Maxmod</a></bold><h4></li>
+<li><h4><a href="#practica-4:-audio-amb-maxmod">Practica 4: Audio amb Maxmod</a></bold><h4></li>
+
+<li><h4><a href="#t">T</a></bold><h4></li>
 
 
     </ul>
@@ -150,7 +175,7 @@
     <!-- Aquí empiezan los artículos -->
     <div class="col-md-12">
         
-    <div id='practica-1:-preparacio-de-l'entorn' class='featurette data-sr'>
+    <div id="practica-1:-preparacio-de-l'entorn" class='featurette data-sr'>
         <h1>Practica 1: Preparacio de l'entorn</h1>
 <h2>Instal·lació de l'entorn</h2>
 <p>Primer hem descarregat l'script de la pàgina web i l'hem executat, instal·lant així l'entorn. A més hem afegit les variables del sistema, i les hem fet permanents.</p>
@@ -179,7 +204,7 @@ Als exemples descarregats també hi han alguns que no estan a la web.</p>
     </div>
 <br><hr><br>
 
-    <div id='practica-2:-bouncing-ball' class='featurette data-sr'>
+    <div id="practica-2:-bouncing-ball" class='featurette data-sr'>
         <h1>Pràctica 2:  Accés a la informació en el hardware</h1>
 <h2>0. Descàrregues</h2>
 <ul>
@@ -217,21 +242,44 @@ year = timeStruct-&gt;tm_year+1900;
 </code></pre>
 <h2>3. Gestió de l'entrada d'usuari</h2>
 <p>En aquest apartat se'ns demana executar cinc exemples, anem a mostrar captures dels mateixos i explicar la seua funcionalitat.</p>
-<h3>keyboard_async</h3>
-<p><img class="img-responsive center-block" alt="Imatge 2: Sortida keyboard_async" src="imgs/2/2.png" /></p>
-<p>Aquest exemple no és més que un simple teclat sense cap tipus de funcionalitat llevat de poder escriure a la pròpia pantalla de la NDS.</p>
-<h3>keyboard_stdin</h3>
-<p><img class="img-responsive center-block" alt="Imatge 3: Sortida keyboard_stdin" src="imgs/2/3.png" /></p>
-<p>Al contrari que l'exemple anterior, aquest és un programa que ens pregunta el nostre nom. Una vegada l'introduïm amb el teclat (el mateix que a l'exemple anterior) aquest desapareix i ens contesta <code>Hello (nom)</code>.</p>
-<h3>touch_area</h3>
-<p><img class="img-responsive center-block" alt="Imatge 4: Sortida touch_area" src="imgs/2/4.png" /></p>
-<p>Aquest exemple ens diu el punt que hem tocat de la pantalla tàctil, així com la pressió i, depenent de l'àrea, ens diu si hem tocat la pantalla amb el dit o l'estilus (en aquest cas ratolí ja que és un emulador).</p>
-<h3>touch_look</h3>
-<p><img class="img-responsive center-block" alt="Imatge 5: Sortida touch_look" src="imgs/2/5.png" /></p>
-<p>Ací estem a un entorn 3D pel qual podem rotar la càmera (però no desplaçar-la) tocant la pantalla inferior. Si llisquem cap a l'esquerra, la càmera gira cap a l'esquerra, etc. El moviment és completament lliure.</p>
-<h3>touch_test</h3>
-<p><img class="img-responsive center-block" alt="Imatge 6: Sortida touch_test" src="imgs/2/6.png" /></p>
-<p>Per acabar, aquest últim exemple ens diu les coordenades on hem tocat la pantalla tàctil i, a més a més, deixa l'sprite d'un punt roig a eixes coordenades. És molt similar a l'exemple <code>touch_area</code> llevat del punt roig i que, aquest, no ens diu la pressió ni si hem tocat amb el dit o no.</p>
+<div id="screenshots3" class="text-center">
+    <div id="cbp-fwslider2" class="cbp-fwslider">
+        <ul>
+
+            <li>
+              <h3 style="text-align: left;"> keyboard_async</h3>
+              <a href=""><img class="img-responsive center-block" src="imgs/2/2.png" alt="Imatge 2: Sortida keyboard_async"/></a>
+              <p class="wordWrap">Aquest exemple no és més que un simple teclat sense cap tipus de funcionalitat llevat de poder escriure a la pròpia pantalla de la NDS.</p>
+            </li>
+
+            <li>
+              <h3 style="text-align: left;"> keyboard_stdin</h3>
+              <a href=""><img class="img-responsive center-block" src="imgs/2/3.png" alt="Imatge 3: Sortida keyboard_stdin"/></a>
+              <p class="wordWrap">Al contrari que l'exemple anterior, aquest és un programa que ens pregunta el nostre nom. Una vegada l'introduïm amb el teclat (el mateix que a l'exemple anterior) aquest desapareix i ens contesta `Hello (nom)`.</p>
+            </li>
+
+            <li>
+              <h3 style="text-align: left;"> touch_area</h3>
+              <a href=""><img class="img-responsive center-block" src="imgs/2/4.png" alt="Imatge 4: Sortida touch_area"/></a>
+              <p class="wordWrap">Aquest exemple ens diu el punt que hem tocat de la pantalla tàctil, així com la pressió i, depenent de l'àrea, ens diu si hem tocat la pantalla amb el dit o l'estilus (en aquest cas ratolí ja que és un emulador).</p>
+            </li>
+
+            <li>
+              <h3 style="text-align: left;"> touch_look</h3>
+              <a href=""><img class="img-responsive center-block" src="imgs/2/5.png" alt="Imatge 5: Sortida touch_look"/></a>
+              <p class="wordWrap">Ací estem a un entorn 3D pel qual podem rotar la càmera (però no desplaçar-la) tocant la pantalla inferior. Si llisquem cap a l'esquerra, la càmera gira cap a l'esquerra, etc. El moviment és completament lliure.</p>
+            </li>
+
+            <li>
+              <h3 style="text-align: left;"> touch_test</h3>
+              <a href=""><img class="img-responsive center-block" src="imgs/2/6.png" alt="Imatge 6: Sortida touch_test"/></a>
+              <p class="wordWrap">Per acabar, aquest últim exemple ens diu les coordenades on hem tocat la pantalla tàctil i, a més a més, deixa l'sprite d'un punt roig a eixes coordenades. És molt similar a l'exemple `touch_area` llevat del punt roig i que, aquest, no ens diu la pressió ni si hem tocat amb el dit o no.</p>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
 <h2>4. Treball autònom</h2>
 <p>Com a treball autònom se'ns demana crear un programa on l'usuari puga triar quines dades emmagatzemades en la consola, vol visualitzar.
 Adjuntem el codi font i l'arxiu Makefile amb aquest exercici resolt. Ací podem veure una captura del programa en execució.</p>
@@ -239,7 +287,7 @@ Adjuntem el codi font i l'arxiu Makefile amb aquest exercici resolt. Ací podem 
     </div>
 <br><hr><br>
 
-    <div id='practica-3:-entrada-i-sortida-de-dades' class='featurette data-sr'>
+    <div id="practica-3:-entrada-i-sortida-de-dades" class='featurette data-sr'>
         <h1>Pràctica 3: Entrada i sortida de dades</h1>
 <h2>0. Descàrregues</h2>
 <ul>
@@ -251,20 +299,46 @@ Adjuntem el codi font i l'arxiu Makefile amb aquest exercici resolt. Ací podem 
 <p><img class="img-responsive center-block" alt="Imatge 1: Sortida del programa ex1P3" src="imgs/3/1.png" /></p>
 <h2>2. Ús avançat del text a la pantalla</h2>
 <p>A aquest segon apartat ens donen cinc exemples que hem d'executar i observar per tal d'indicar el seu funcionament. Passem a mostrar a continuació les captures dels programes executant-se i les seues explicacions:</p>
-<h3>custom_font</h3>
-<p><img class="img-responsive center-block" alt="Imatge 2: Execució del programa custom_font" src="imgs/3/2.png" /></p>
-<p>Aquest exemple només ens mostra una tipografia diferent a l'hora de mostrar text en pantalla. No podem interactuar en ell de cap manera, però està pensat per a poder observar el codi i així saber com incloure una nova tipografia.</p>
-<h3>print_both_screens</h3>
-<p><img class="img-responsive center-block" alt="Imatge 3: Execució del programa print_both_screens" src="imgs/3/3.png" /></p>
-<p>L'única interacció d'aquest programa és que ens marca les coordenades del punt on hem tocat la pantalla tàctil. A la pantalla superior té un text fixe que no varia. La utilitat d'aquest programa és aprendre a escriure text a ambdues pantalles.</p>
-<h3>rotation</h3>
-<p><img class="img-responsive center-block" alt="Imatge 4: Execució del programa rotation" src="imgs/3/4.png" /></p>
-<p>Mitjançant els botons, a aquest programa, podrem desplaçar i deformar la imatge de la pantalla superior.</p>
-<h3>rotscale_text</h3>
-<p><img class="img-responsive center-block" alt="Imatge 5: Execució del programa rotscale_text" src="imgs/3/5.png" /></p>
-<h3>console_windows</h3>
-<p><img class="img-responsive center-block" alt="Imatge 6: Execució del programa console_windows" src="imgs/3/6.png" /></p>
-<p>Aquest simple programa divideix la pantalla tàctil en dos. Si toquem la part esquerra, ens mostra la coordenada Y a la part esquerra, si toquem la dreta, ens mostra la mateixa coordenada a la dreta.</p>
+<!-- CAPTURAS DE PANTALLA -->
+
+<div id="screenshots" class="text-center">
+    <div id="cbp-fwslider3" class="cbp-fwslider">
+        <ul>
+            <li>
+              <h3 style="text-align: left;"> custom_font</h3>
+              <a href=""><img class="img-responsive center-block" src="imgs/3/2.png" alt="Imatge 2: Execució del programa custom_font"/></a>
+              <p class="wordWrap">Aquest exemple només ens mostra una tipografia diferent a l'hora de mostrar text en pantalla. No podem interactuar en ell de cap manera, però està pensat per a poder observar el codi i així saber com incloure una nova tipografia.</p>
+            </li>
+
+            <li>
+              <h3 style="text-align: left;"> print_both_screens</h3>
+              <a href=""><img class="img-responsive center-block" src="imgs/3/3.png" alt="Imatge 3: Execució del programa print_both_screens"/></a>
+              <p class="wordWrap">L'única interacció d'aquest programa és que ens marca les coordenades del punt on hem tocat la pantalla tàctil. A la pantalla superior té un text fixe que no varia. La utilitat d'aquest programa és aprendre a escriure text a ambdues pantalles.</p>
+            </li>
+
+            <li>
+              <h3 style="text-align: left;"> rotation</h3>
+              <a href=""><img class="img-responsive center-block" src="imgs/3/4.png" alt="Imatge 4: Execució del programa rotation"/></a>
+              <p class="wordWrap">Mitjançant els botons, a aquest programa, podrem desplaçar i deformar la imatge de la pantalla superior.</p>
+            </li>
+
+            <li>
+              <h3 style="text-align: left;"> rotscale_text</h3>
+              <a href=""><img class="img-responsive center-block" src="imgs/3/5.png" alt="Imatge 5: Execució del programa rotscale_text"/></a>
+              <p></p>
+            </li>
+
+            <li>
+              <h3 style="text-align: left;"> console_windows</h3>
+              <a href=""><img class="img-responsive center-block" src="imgs/3/6.png" alt="Imatge 6: Execució del programa console_windows"/></a>
+              <p class="wordWrap">Aquest simple programa divideix la pantalla tàctil en dos. Si toquem la part esquerra, ens mostra la coordenada Y a la part esquerra, si toquem la dreta, ens mostra la mateixa coordenada a la dreta.</p>
+            </li>
+
+        </ul>
+    </div>
+
+</div>
+
 <h2>3. Sistema d'arxius</h2>
 <p>Aquest últim exercici ens demana executar els dos exemples de sistemes d'arxius nitrofs i fat, i fer captures de l'execució dels mateixos.</p>
 <p><img class="img-responsive center-block" alt="Imatge 7: Execució de l'exemple fat" src="imgs/3/7.png" /></p>
@@ -272,7 +346,7 @@ Adjuntem el codi font i l'arxiu Makefile amb aquest exercici resolt. Ací podem 
     </div>
 <br><hr><br>
 
-    <div id='practica-4:-audio-amb-maxmod' class='featurette data-sr'>
+    <div id="practica-4:-audio-amb-maxmod" class='featurette data-sr'>
         <h1>Pràctica 4: Àudio amb Maxmod</h1>
 <h2>Reproducció d'àudio</h2>
 <p>Aquest primer exercici és introductori. Hem de respondre un parell de preguntes, com ara indicar com incloure la biblioteca Maxmod a un codi i com generar el banc de sons.
@@ -319,14 +393,53 @@ La primera pregunta és simple, la biblioteca s'inclou com qualsevol altra bibli
     </div>
 <br><hr><br>
 
+    <div id="t" class='featurette data-sr'>
+        <h1>Pràctica 4: Àudio amb Maxmod</h1>
+<h2>Reproducció d'àudio</h2>
+<p>Aquest primer exercici és introductori. Hem de respondre un parell de preguntes, com ara indicar com incloure la biblioteca Maxmod a un codi i com generar el banc de sons.
+La primera pregunta és simple, la biblioteca s'inclou com qualsevol altra biblioteca que vaja a ser emprada:</p>
+<pre><code>    #include &lt;maxmod9.h&gt;
+</code></pre>
+<p>A més a més, caldrà afegir les capçaleres del banc de sons (que ara després indicarem com es genera):</p>
+<pre><code>    #include “soundbank.h”
+    #include “soundbank_bin.h”
+</code></pre>
+<p>Pel que fa a la generació del banc de sons, es fa al Makefile, és a dir, es genera a l'hora de compilar el projecte. Concretament, es genera amb aquesta regla del Makefile:</p>
+<pre><code>    #------------------------------------------------------------
+    # rule to build soundbank from music files
+    #------------------------------------------------------------
+    soundbank.bin : ${AUDIOFILES}
+    #------------------------------------------------------------
+    @mmutil $^ -d -osoundbank.bin -hsoundbank.h
+</code></pre>
+<h2>Reproducció de fitxers modulars per a música</h2>
+<p>L'única pregunta d'aquest exercici és simple: Quina diferència hi ha al Makefile entre l'exemple anterior i l'exemple audio_modes per a que al primer els arxius d'àudio estiguen a la carpeta maxmod_data i al segon, a la carpeta audio. La resposta és encara més simple. Al principi del Makefile indiquem quins són els directoris que contenen cada element. Només cal modificar la línia següent:</p>
+<pre><code>    MUSIC := maxmod_data
+</code></pre>
+<p>La part dreta pel nom del directori on estiguen els arxius de música.</p>
+<h2>Sincronització d'esdeveniments</h2>
+<p><!-- CAPTURAS DE PANTALLA -->
+            <div id="screenshots" class="text-center">
+                <h1>Capturas de pantalla</h1>
+                <div id="cbp-fwslider" class="cbp-fwslider">
+                    <ul>
+                        <li><a href="#"><img class="img-responsive center-block" src="imgs/slider/1.png" alt="img01"/></a></li>
+                        <li><a href="#"><img class="img-responsive center-block" src="imgs/slider/2.png" alt="img02"/></a></li>
+                        <li><a href="#"><img class="img-responsive center-block" src="imgs/slider/3.png" alt="img03"/></a></li>
+                        <li><a href="#"><img class="img-responsive center-block" src="imgs/slider/4.png" alt="img04"/></a></li>
+                    </ul>
+                </div>
+            </div></p>
+<h2>Treball autònom</h2>
+<p>Com que aquest treball era la incorporació d'un efecte de bot a la pilota, i un tema de música al Bouncing Ball Game que ja s'entregà a la seua tasca corresponent, no adjuntarem el projecte.</p>
+    </div>
+<br><hr><br>
+
     </div>
 </div>
 
-<!-- Baack to top -->
-<a href="#0" class="cd-top">Top</a>
-
 <!-- Pie de página -->
-        <a href="#0" class="cd-top">Top</a>
+
         
         <!-- Highlighter -->
         <script>hljs.initHighlightingOnLoad();</script>
@@ -378,6 +491,21 @@ La primera pregunta és simple, la biblioteca s'inclou com qualsevol altra bibli
 
         });
         </script>
+        
+        <!-- Slider
+             https://github.com/codrops/Blueprint-FullWidthImageSlider
+        -->
+        <script src="js/jquery.cbpFWSlider.min.js"></script>
+        <script>
+            $( function() {
+                $( '#cbp-fwslider2' ).cbpFWSlider();
+            } );
+            
+            $( function() {
+                $( '#cbp-fwslider3' ).cbpFWSlider();
+            } );
+        </script>
 
+        <a href="#0" class="cd-top">Top</a>
     </body>
 </html>

@@ -22,11 +22,11 @@ indice = '''
         %s
     </ul>
 '''
-indice_elemento = '''<li><h4><bold><a href='#%s'>%s</a></bold><h4></li>\n'''
+indice_elemento = '''<li><h4><a href="#%s">%s</a></bold><h4></li>\n'''
 
 # El contenedor que envuelve a un artículo
 contenedor = '''
-    <div id='%s' class='featurette data-sr'>
+    <div id="%s" class='featurette data-sr'>
         %s
     </div>
 <br><hr><br>
@@ -81,9 +81,6 @@ html = u'''
         {blog}
     </div>
 </div>
-
-<!-- Baack to top -->
-<a href="#0" class="cd-top">Top</a>
 
 <!-- Pie de página -->
 {pie_de_pagina}'''.format(
