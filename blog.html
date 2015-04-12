@@ -28,6 +28,13 @@
         
         <!-- Google fonts -->
         <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Nova+Mono' rel='stylesheet' type='text/css'>
+        <style>
+        code {
+            font-family: 'Nova Mono', serif;
+        }
+        </style>
+        
         <!-- Unused fonts
         <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         -->
@@ -57,7 +64,8 @@
               <!-- A la esquerra -->
               <ul class="nav navbar-nav">
                 <li><a href="./index.html">Inicio</a></li>
-                <li><a href="./blog.html">Blog de desarollo</a></li>
+                <li><a href="./blog.html">Practiques</a></li>
+                <li><a href="./memoria.html">Memòria</a></li>
                 <li><a href="./galeria.html">Capturas</a></li>
                 <li><a href="./about.html">Acerca de</a></li>
               </ul>
@@ -146,6 +154,11 @@ Als exemples descarregats també hi han alguns que no estan a la web.</p>
 
     <div id='practica-2:-bouncing-ball' class='featurette data-sr'>
         <h1>Pràctica 2:  Accés a la informació en el hardware</h1>
+<h2>0. Descàrregues</h2>
+<ul>
+<li><a href="https://github.com/EnriqueSoria/AEV-project/raw/gh-pages/raw/2/1.%20Exercici.zip">Exercici 1</a></li>
+<li><a href="https://github.com/EnriqueSoria/AEV-project/raw/gh-pages/raw/2/2.%20Treball%20aut%C3%B2nom.zip">Treball autònom</a></li>
+</ul>
 <h2>1. Accés al sistema</h2>
 <p>Per tal d'accedir a les dades del sistema, simplement hem tingut que incloure la capçalera
 <code>system.h</code> de libnds, i després accedir a l'estructura PersonalData des d'on poden extraure el nom
@@ -178,17 +191,17 @@ year = timeStruct-&gt;tm_year+1900;
 <h2>3. Gestió de l'entrada d'usuari</h2>
 <p>En aquest apartat se'ns demana executar cinc exemples, anem a mostrar captures dels mateixos i explicar la seua funcionalitat.</p>
 <h3>keyboard_async</h3>
-<p><img class="img-responsive center-block" alt="Imatge 2: Sortida keyboard_async" src="imgs/2/2.png" />
-Aquest exemple no és més que un simple teclat sense cap tipus de funcionalitat llevat de poder escriure a la pròpia pantalla de la NDS.</p>
+<p><img class="img-responsive center-block" alt="Imatge 2: Sortida keyboard_async" src="imgs/2/2.png" /></p>
+<p>Aquest exemple no és més que un simple teclat sense cap tipus de funcionalitat llevat de poder escriure a la pròpia pantalla de la NDS.</p>
 <h3>keyboard_stdin</h3>
-<p><img class="img-responsive center-block" alt="Imatge 3: Sortida keyboard_stdin" src="imgs/2/3.png" />
-Al contrari que l'exemple anterior, aquest és un programa que ens pregunta el nostre nom. Una vegada l'introduïm amb el teclat (el mateix que a l'exemple anterior) aquest desapareix i ens contesta <code>Hello (nom)</code>.</p>
+<p><img class="img-responsive center-block" alt="Imatge 3: Sortida keyboard_stdin" src="imgs/2/3.png" /></p>
+<p>Al contrari que l'exemple anterior, aquest és un programa que ens pregunta el nostre nom. Una vegada l'introduïm amb el teclat (el mateix que a l'exemple anterior) aquest desapareix i ens contesta <code>Hello (nom)</code>.</p>
 <h3>touch_area</h3>
-<p><img class="img-responsive center-block" alt="Imatge 4: Sortida touch_area" src="imgs/2/4.png" />
-Aquest exemple ens diu el punt que hem tocat de la pantalla tàctil, així com la pressió i, depenent de l'àrea, ens diu si hem tocat la pantalla amb el dit o l'estilus (en aquest cas ratolí ja que és un emulador).</p>
+<p><img class="img-responsive center-block" alt="Imatge 4: Sortida touch_area" src="imgs/2/4.png" /></p>
+<p>Aquest exemple ens diu el punt que hem tocat de la pantalla tàctil, així com la pressió i, depenent de l'àrea, ens diu si hem tocat la pantalla amb el dit o l'estilus (en aquest cas ratolí ja que és un emulador).</p>
 <h3>touch_look</h3>
-<p><img class="img-responsive center-block" alt="Imatge 5: Sortida touch_look" src="imgs/2/5.png" />
-Ací estem a un entorn 3D pel qual podem rotar la càmera (però no desplaçar-la) tocant la pantalla inferior. Si llisquem cap a l'esquerra, la càmera gira cap a l'esquerra, etc. El moviment és completament lliure.</p>
+<p><img class="img-responsive center-block" alt="Imatge 5: Sortida touch_look" src="imgs/2/5.png" /></p>
+<p>Ací estem a un entorn 3D pel qual podem rotar la càmera (però no desplaçar-la) tocant la pantalla inferior. Si llisquem cap a l'esquerra, la càmera gira cap a l'esquerra, etc. El moviment és completament lliure.</p>
 <h3>touch_test</h3>
 <p><img class="img-responsive center-block" alt="Imatge 6: Sortida touch_test" src="imgs/2/6.png" /></p>
 <p>Per acabar, aquest últim exemple ens diu les coordenades on hem tocat la pantalla tàctil i, a més a més, deixa l'sprite d'un punt roig a eixes coordenades. És molt similar a l'exemple <code>touch_area</code> llevat del punt roig i que, aquest, no ens diu la pressió ni si hem tocat amb el dit o no.</p>
@@ -201,30 +214,34 @@ Adjuntem el codi font i l'arxiu Makefile amb aquest exercici resolt. Ací podem 
 
     <div id='practica-3:-entrada-i-sortida-de-dades' class='featurette data-sr'>
         <h1>Pràctica 3: Entrada i sortida de dades</h1>
+<h2>0. Descàrregues</h2>
+<ul>
+<li><a href="https://github.com/EnriqueSoria/AEV-project/blob/gh-pages/raw/3/3.%20Entrada%20i%20sortida%20de%20dades.pdf">Pràctica 3</a></li>
+</ul>
 <h2>1. Gestió dels controls</h2>
-<p>En aquest primer exercici se'ns demana que desenvolupem un programa que ens comunique l'estat dels tretze botons de la consola (si estan premuts o no).
-El funcionament de dit programa és simple, ja que tenim una funció <code>keysDown()</code> que ens indica si s'ha premut un botó. A partir d'ahí simplement cal mostrar per pantalla quins ho han fet, i quins no. Adjuntem el codi font junt a aquesta memòria a la carpeta ex1P3.
-<img class="img-responsive center-block" alt="Imatge 1: Sortida del programa ex1P3" src="imgs/3/1.png" /></p>
+<p>En aquest primer exercici se'ns demana que desenvolupem un programa que ens comunique l'estat dels tretze botons de la consola (si estan premuts o no).</p>
+<p>El funcionament de dit programa és simple, ja que tenim una funció <code>keysDown()</code> que ens indica si s'ha premut un botó. A partir d'ahí simplement cal mostrar per pantalla quins ho han fet, i quins no. Adjuntem el codi font junt a aquesta memòria a la carpeta ex1P3.</p>
+<p><img class="img-responsive center-block" alt="Imatge 1: Sortida del programa ex1P3" src="imgs/3/1.png" /></p>
 <h2>2. Ús avançat del text a la pantalla</h2>
 <p>A aquest segon apartat ens donen cinc exemples que hem d'executar i observar per tal d'indicar el seu funcionament. Passem a mostrar a continuació les captures dels programes executant-se i les seues explicacions:</p>
 <h3>custom_font</h3>
-<p><img class="img-responsive center-block" alt="Imatge 2: Execució del programa custom_font" src="imgs/3/2.png" />
-Aquest exemple només ens mostra una tipografia diferent a l'hora de mostrar text en pantalla. No podem interactuar en ell de cap manera, però està pensat per a poder observar el codi i així saber com incloure una nova tipografia.</p>
+<p><img class="img-responsive center-block" alt="Imatge 2: Execució del programa custom_font" src="imgs/3/2.png" /></p>
+<p>Aquest exemple només ens mostra una tipografia diferent a l'hora de mostrar text en pantalla. No podem interactuar en ell de cap manera, però està pensat per a poder observar el codi i així saber com incloure una nova tipografia.</p>
 <h3>print_both_screens</h3>
-<p><img class="img-responsive center-block" alt="Imatge 3: Execució del programa print_both_screens" src="imgs/3/3.png" />
-L'única interacció d'aquest programa és que ens marca les coordenades del punt on hem tocat la pantalla tàctil. A la pantalla superior té un text fixe que no varia. La utilitat d'aquest programa és aprendre a escriure text a ambdues pantalles.</p>
+<p><img class="img-responsive center-block" alt="Imatge 3: Execució del programa print_both_screens" src="imgs/3/3.png" /></p>
+<p>L'única interacció d'aquest programa és que ens marca les coordenades del punt on hem tocat la pantalla tàctil. A la pantalla superior té un text fixe que no varia. La utilitat d'aquest programa és aprendre a escriure text a ambdues pantalles.</p>
 <h3>rotation</h3>
-<p><img class="img-responsive center-block" alt="Imatge 4: Execució del programa rotation" src="imgs/3/4.png" />
-Mitjançant els botons, a aquest programa, podrem desplaçar i deformar la imatge de la pantalla superior.</p>
+<p><img class="img-responsive center-block" alt="Imatge 4: Execució del programa rotation" src="imgs/3/4.png" /></p>
+<p>Mitjançant els botons, a aquest programa, podrem desplaçar i deformar la imatge de la pantalla superior.</p>
 <h3>rotscale_text</h3>
 <p><img class="img-responsive center-block" alt="Imatge 5: Execució del programa rotscale_text" src="imgs/3/5.png" /></p>
 <h3>console_windows</h3>
-<p><img class="img-responsive center-block" alt="Imatge 6: Execució del programa console_windows" src="imgs/3/6.png" />
-Aquest simple programa divideix la pantalla tàctil en dos. Si toquem la part esquerra, ens mostra la coordenada Y a la part esquerra, si toquem la dreta, ens mostra la mateixa coordenada a la dreta.</p>
+<p><img class="img-responsive center-block" alt="Imatge 6: Execució del programa console_windows" src="imgs/3/6.png" /></p>
+<p>Aquest simple programa divideix la pantalla tàctil en dos. Si toquem la part esquerra, ens mostra la coordenada Y a la part esquerra, si toquem la dreta, ens mostra la mateixa coordenada a la dreta.</p>
 <h2>3. Sistema d'arxius</h2>
-<p>Aquest últim exercici ens demana executar els dos exemples de sistemes d'arxius nitrofs i fat, i fer captures de l'execució dels mateixos.
-<img class="img-responsive center-block" alt="Imatge 7: Execució de l'exemple fat" src="imgs/3/7.png" />
-<img class="img-responsive center-block" alt="Imatge 8: Execució de l'exemple nitrofs" src="imgs/3/8.png" /></p>
+<p>Aquest últim exercici ens demana executar els dos exemples de sistemes d'arxius nitrofs i fat, i fer captures de l'execució dels mateixos.</p>
+<p><img class="img-responsive center-block" alt="Imatge 7: Execució de l'exemple fat" src="imgs/3/7.png" /></p>
+<p><img class="img-responsive center-block" alt="Imatge 8: Execució de l'exemple nitrofs" src="imgs/3/8.png" /></p>
     </div>
 <br><hr><br>
 
