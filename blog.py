@@ -82,6 +82,9 @@ html = u'''
     </div>
 </div>
 
+<!-- Baack to top -->
+<a href="#0" class="cd-top">Top</a>
+
 <!-- Pie de página -->
 {pie_de_pagina}'''.format(
     cabecera = read('./include/header.html'),
