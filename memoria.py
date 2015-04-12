@@ -17,12 +17,12 @@ nombre_html = 'memoria.html'
 
 # Índice
 indice = '''
-    <h2 class="text-muted">Taula de continguts</h1>
+    <h1 class="text-muted" >Taula de continguts</h1>
     <ul>
         %s
     </ul>
 '''
-indice_elemento = '''<li><h4><a href='#%s'>%s</a><h3></li>\n'''
+indice_elemento = '''<li><h4><bold><a href='#%s'>%s</a></bold><h4></li>\n'''
 
 # El contenedor que envuelve a un artículo
 contenedor = '''
@@ -48,7 +48,7 @@ def create_blog(lista):
     for fichero in sorted([f for f in ls('./memoria') if f.endswith('.md')]):
 
         # Abrimos el fichero y lo leemos
-        inp = codecs.open('./blog/%s'%fichero, mode="r", encoding="utf-8")
+        inp = codecs.open('./memoria/%s'%fichero, mode="r", encoding="utf-8")
         md = inp.read()
 
         # Preparamos el html
@@ -68,15 +68,16 @@ html = u'''
 
 
 <!-- Cuerpo -->
-<div id="sidebar" class="row">
+<div id="sidebar" class="row jumbotron">
 
     <!-- Indice -->
-    <div class="col-md-3">
+    <div class="col-md-8">
         {indices}
     </div>
-
+</div>
+<div class="row">
     <!-- Aquí empiezan los artículos -->
-    <div class="col-md-9">
+    <div class="col-md-12">
         {blog}
     </div>
 </div>
@@ -92,7 +93,7 @@ html = u'''
 html = html.replace('<img', '<img class="img-responsive center-block"')
 
 # Guardamos el html
-output_file = codecs.open("blog.html", "w+", 
+output_file = codecs.open("memoria.html", "w+", 
                           encoding="utf-8", 
                           errors="xmlcharrefreplace"
 )

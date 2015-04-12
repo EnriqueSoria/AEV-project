@@ -22,7 +22,7 @@ indice = '''
         %s
     </ul>
 '''
-indice_elemento = '''<li><h4><bold><a href='#%s'>%s</a></bold><h3></li>\n'''
+indice_elemento = '''<li><h4><bold><a href='#%s'>%s</a></bold><h4></li>\n'''
 
 # El contenedor que envuelve a un artículo
 contenedor = '''
