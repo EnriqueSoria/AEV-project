@@ -1,0 +1,11 @@
+#define SFX_B	0
+#define SFX_CHOOSE	1
+#define SFX_CORRECT	2
+#define SFX_G	3
+#define SFX_R	4
+#define MOD_THEME	0
+#define SFX_WRONG	36
+#define SFX_Y	37
+#define MSL_NSONGS	1
+#define MSL_NSAMPS	38
+#define MSL_BANKSIZE	39

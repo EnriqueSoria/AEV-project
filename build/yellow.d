@@ -1,0 +1,1 @@
+yellow.o: yellow.s

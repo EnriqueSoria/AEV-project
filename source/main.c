@@ -16,6 +16,10 @@
 #include "green.h"
 #include "yellow.h"
 #include "blue.h"
+#include "topscreen.h"
+
+// Basic menu
+#include "mainMenu.h"
 
 // Sound
 #include <maxmod9.h>
@@ -34,6 +38,7 @@ char solution[WIN];
 int last = 0;									//last void position
 int length = sizeof(solution)/sizeof(char);
 int correct = 1;
+
 
 /*
 	Initializes the array
@@ -198,13 +203,13 @@ int selection(char x, int pos)
 	loadBG(x);
 	if(confirm(x,pos)){
 		if(pos + 1 >= last)changeTimer(1,CORRECT);
-		sleep(5);
+		//sleep(5);
 		decompress(chromeP2Bitmap, BG_GFX_SUB,  LZ77Vram);
 		return 1;
 	}
 	else{
 		changeTimer(0,INCORRECT);
-		sleep(5);
+		//sleep(5);
 		decompress(chromeP2Bitmap, BG_GFX_SUB,  LZ77Vram);
 		return 0;
 	}
@@ -219,29 +224,18 @@ int main()
 
 	touchPosition touch;
 
-	PrintConsole topScreen;
-	PrintConsole bottomScreen;
-	
-	videoSetMode(MODE_0_2D);
-	videoSetModeSub(MODE_5_2D);
-	
-	vramSetBankA(VRAM_A_MAIN_BG);
-	vramSetBankC(VRAM_C_SUB_BG);
-	
-	consoleInit(&topScreen, 3,BgType_Text4bpp, BgSize_T_256x256, 31, 0, true, true);
-	consoleInit(&bottomScreen, 3, BgType_Bmp16, BgSize_B16_256x256, 0, 0, false, false);
-
-	consoleSelect(&topScreen);
-	
-	decompress(chromeP2Bitmap, BG_GFX_SUB,  LZ77Vram);
-	
-	// Load sounds
+		// Load sounds
 	mmInitDefaultMem((mm_addr)soundbank_bin);
+	mmLoad( MOD_THEME );
 	mmLoadEffect( SFX_R );
 	mmLoadEffect( SFX_G );
 	mmLoadEffect( SFX_Y );
 	mmLoadEffect( SFX_B );
+	mmLoadEffect( SFX_CHOOSE );
 	mmLoadEffect( SFX_WRONG );
+	
+	mmStart( MOD_THEME, MM_PLAY_LOOP );
+	mmSetModuleVolume( 250 );
 	
 	// Red
 	mm_sound_effect r = {
@@ -288,6 +282,48 @@ int main()
 		255,	// panning
 	};
 	
+	// Choose
+	mm_sound_effect choose = {
+		{ SFX_CHOOSE } ,		// id
+		(int)(1.0f * (1<<10)),	// rate
+		0,		// handle
+		255,	// volume
+		255,	// panning
+	};
+	
+	PrintConsole topScreen;
+	PrintConsole bottomScreen;
+	
+	// We load the main menu
+	loadMenu();
+	mmEffectEx(&choose);
+	//sleep(5);
+	
+	videoSetMode(MODE_4_2D);
+	videoSetModeSub(MODE_4_2D);
+	
+	/** TESTING **/
+	vramSetBankA(VRAM_A_MAIN_BG);
+    int bg = bgInit(3, BgType_Bmp16, BgSize_B16_256x256, 5,0);
+    decompress(topscreenBitmap, bgGetGfxPtr(bg), LZ77Vram);
+    
+    //consoleInit(0,0, BgType_Text4bpp, BgSize_T_256x256, 4,0, true, true);
+    //iprintf("\x1b[1;1HThe garbage is up here ^^^^^.");
+    //iprintf("\x1b[21;1HTesting the text function...");
+	/* fiTESTING */
+	
+	//vramSetBankA(VRAM_A_MAIN_BG);
+	vramSetBankC(VRAM_C_SUB_BG);
+	
+	
+	
+	consoleInit(&topScreen, 1,BgType_Text4bpp, BgSize_T_256x256, 4, 0, true, true);
+	consoleInit(&bottomScreen, 3, BgType_Bmp16, BgSize_B16_256x256, 0, 0, false, false);
+
+	consoleSelect(&topScreen);
+	
+	decompress(chromeP2Bitmap, BG_GFX_SUB,  LZ77Vram);
+	
 	//calls the updateTimer function 1 times per second
 	timerStart(0, ClockDivider_1024, TIMER_FREQ_1024(1), updateTimer);
 	
@@ -321,7 +357,7 @@ int main()
 				mmEffectEx(&b);
 				break;
 			}
-			sleep(5);
+			//sleep(5);
 			decompress(chromeP2Bitmap, BG_GFX_SUB,  LZ77Vram);
 		}
 		//AI
@@ -370,7 +406,7 @@ int main()
 			{
 				mmEffectEx(&wrong);
 				iprintf("\nERROR!");
-				sleep(5);
+				//sleep(5);
 			}
 			pos++;
 			sel = 'v';

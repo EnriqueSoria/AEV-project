@@ -1,0 +1,1 @@
+red.o: red.s
