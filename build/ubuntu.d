@@ -1,0 +1,1 @@
+ubuntu.o: ubuntu.s

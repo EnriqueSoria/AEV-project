@@ -1,4 +1,4 @@
-main.o: /home/nrikee/Documents/GitHub/Projecte/source/main.c \
+main.o: /home/nrikee/Documents/GitHub/AEV-project/source/main.c \
  /home/nrikee/devkitPro/libnds/include/nds.h \
  /home/nrikee/devkitPro/libnds/include/nds/libversion.h \
  /home/nrikee/devkitPro/libnds/include/nds/ndstypes.h \
@@ -56,17 +56,17 @@ main.o: /home/nrikee/Documents/GitHub/Projecte/source/main.c \
  /home/nrikee/devkitPro/libnds/include/nds/arm9/trig_lut.h \
  /home/nrikee/devkitPro/libnds/include/nds/arm9/video.h \
  /home/nrikee/devkitPro/libnds/include/nds/arm9/videoGL.h \
- /home/nrikee/Documents/GitHub/Projecte/build/chromeP2.h \
- /home/nrikee/Documents/GitHub/Projecte/build/red.h \
- /home/nrikee/Documents/GitHub/Projecte/build/green.h \
- /home/nrikee/Documents/GitHub/Projecte/build/yellow.h \
- /home/nrikee/Documents/GitHub/Projecte/build/blue.h \
- /home/nrikee/Documents/GitHub/Projecte/build/topscreen.h \
- /home/nrikee/Documents/GitHub/Projecte/include/mainMenu.h \
+ /home/nrikee/Documents/GitHub/AEV-project/build/chromeP2.h \
+ /home/nrikee/Documents/GitHub/AEV-project/build/red.h \
+ /home/nrikee/Documents/GitHub/AEV-project/build/green.h \
+ /home/nrikee/Documents/GitHub/AEV-project/build/yellow.h \
+ /home/nrikee/Documents/GitHub/AEV-project/build/blue.h \
+ /home/nrikee/Documents/GitHub/AEV-project/build/topscreen.h \
+ /home/nrikee/Documents/GitHub/AEV-project/include/mainMenu.h \
  /home/nrikee/devkitPro/libnds/include/maxmod9.h \
  /home/nrikee/devkitPro/libnds/include/mm_types.h \
- /home/nrikee/Documents/GitHub/Projecte/build/soundbank.h \
- /home/nrikee/Documents/GitHub/Projecte/build/soundbank_bin.h
+ /home/nrikee/Documents/GitHub/AEV-project/build/soundbank.h \
+ /home/nrikee/Documents/GitHub/AEV-project/build/soundbank_bin.h
 
 /home/nrikee/devkitPro/libnds/include/nds.h:
 
@@ -182,24 +182,24 @@ main.o: /home/nrikee/Documents/GitHub/Projecte/source/main.c \
 
 /home/nrikee/devkitPro/libnds/include/nds/arm9/videoGL.h:
 
-/home/nrikee/Documents/GitHub/Projecte/build/chromeP2.h:
+/home/nrikee/Documents/GitHub/AEV-project/build/chromeP2.h:
 
-/home/nrikee/Documents/GitHub/Projecte/build/red.h:
+/home/nrikee/Documents/GitHub/AEV-project/build/red.h:
 
-/home/nrikee/Documents/GitHub/Projecte/build/green.h:
+/home/nrikee/Documents/GitHub/AEV-project/build/green.h:
 
-/home/nrikee/Documents/GitHub/Projecte/build/yellow.h:
+/home/nrikee/Documents/GitHub/AEV-project/build/yellow.h:
 
-/home/nrikee/Documents/GitHub/Projecte/build/blue.h:
+/home/nrikee/Documents/GitHub/AEV-project/build/blue.h:
 
-/home/nrikee/Documents/GitHub/Projecte/build/topscreen.h:
+/home/nrikee/Documents/GitHub/AEV-project/build/topscreen.h:
 
-/home/nrikee/Documents/GitHub/Projecte/include/mainMenu.h:
+/home/nrikee/Documents/GitHub/AEV-project/include/mainMenu.h:
 
 /home/nrikee/devkitPro/libnds/include/maxmod9.h:
 
 /home/nrikee/devkitPro/libnds/include/mm_types.h:
 
-/home/nrikee/Documents/GitHub/Projecte/build/soundbank.h:
+/home/nrikee/Documents/GitHub/AEV-project/build/soundbank.h:
 
-/home/nrikee/Documents/GitHub/Projecte/build/soundbank_bin.h:
+/home/nrikee/Documents/GitHub/AEV-project/build/soundbank_bin.h:

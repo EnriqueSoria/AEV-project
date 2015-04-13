@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <time.h>
+#include <nds/ndstypes.h>
 
 // git outputs a nice header to reference data
 #include "chromeP2.h"
@@ -291,38 +292,47 @@ int main()
 		255,	// panning
 	};
 	
-	PrintConsole topScreen;
-	PrintConsole bottomScreen;
 	
 	// We load the main menu
 	loadMenu();
 	mmEffectEx(&choose);
 	//sleep(5);
 	
-	videoSetMode(MODE_4_2D);
-	videoSetModeSub(MODE_4_2D);
 	
-	/** TESTING **/
+	// Configuring topScreen
+	videoSetMode(MODE_4_2D);
 	vramSetBankA(VRAM_A_MAIN_BG);
+	
+	PrintConsole topScreen;
     int bg = bgInit(3, BgType_Bmp16, BgSize_B16_256x256, 5,0);
     decompress(topscreenBitmap, bgGetGfxPtr(bg), LZ77Vram);
-    
-    //consoleInit(0,0, BgType_Text4bpp, BgSize_T_256x256, 4,0, true, true);
-    //iprintf("\x1b[1;1HThe garbage is up here ^^^^^.");
-    //iprintf("\x1b[21;1HTesting the text function...");
-	/* fiTESTING */
+    consoleInit(&topScreen, 1,BgType_Text4bpp, BgSize_T_256x256, 4, 0, true, true);
 	
-	//vramSetBankA(VRAM_A_MAIN_BG);
+	
+	// Configuring bottomScreen
+	videoSetModeSub(MODE_4_2D);
 	vramSetBankC(VRAM_C_SUB_BG);
 	
-	
-	
-	consoleInit(&topScreen, 1,BgType_Text4bpp, BgSize_T_256x256, 4, 0, true, true);
+	PrintConsole bottomScreen;
 	consoleInit(&bottomScreen, 3, BgType_Bmp16, BgSize_B16_256x256, 0, 0, false, false);
+	decompress(chromeP2Bitmap, BG_GFX_SUB,  LZ77Vram);
 
+    // Selecting topScreen
 	consoleSelect(&topScreen);
 	
-	decompress(chromeP2Bitmap, BG_GFX_SUB,  LZ77Vram);
+	//Move text
+	consoleSetWindow(&topScreen, 45, 5, 40, 40);
+	
+	// (Trying to) Scale text
+	ConsoleFont font;
+	consoleSetFont(&topScreen, &font);
+	const unsigned int angle = 0;
+	int scaleX = intToFixed(1,8);
+	int scaleY = intToFixed(1,8);
+
+	bgSetRotateScale(topScreen.bgId, angle, ++scaleX, ++scaleY);
+	bgUpdate();
+	
 	
 	//calls the updateTimer function 1 times per second
 	timerStart(0, ClockDivider_1024, TIMER_FREQ_1024(1), updateTimer);
@@ -417,16 +427,17 @@ int main()
 	int a = 0;
 	
 	if(last >= WIN){
-		iprintf("HAS GUANYAT!\nPrem 'A' per a sortir\n");
+		iprintf("\nHAS GUANYAT!\nPrem 'A' per a sortir\n");
 		while (!a)
 		{
 			if(keysDown()&KEY_A) a = 1;
 		}
 	} else {
-		iprintf("Has perdut\nPrem 'A' per a sortir\n");
+		iprintf("\nHas perdut\nPrem 'A' per a sortir\n");
 		while (!a)
 		{
 			if(keysDown()&KEY_A) a = 1;
 		}
 	}
 }
+
