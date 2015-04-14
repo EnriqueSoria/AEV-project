@@ -1,0 +1,7 @@
+El projecte es compila mitjançant l'ordre "make".
+
+Per tal de jugar corrèctament, executar a l'emulador "no$gba"
+
+Autors:
+Salvador Llobet, Ignacio
+Soria Magraner, Enrique

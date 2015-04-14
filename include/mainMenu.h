@@ -3,4 +3,6 @@
 
 void loadMenu(void);
 
+void loadFinal(int v);
+
 #endif

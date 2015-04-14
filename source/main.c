@@ -9,7 +9,6 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <time.h>
-#include <nds/ndstypes.h>
 
 // git outputs a nice header to reference data
 #include "chromeP2.h"
@@ -17,7 +16,10 @@
 #include "green.h"
 #include "yellow.h"
 #include "blue.h"
-#include "topscreen.h"
+#include "topScreen.h"
+
+// Font
+#include "font.h"
 
 // Basic menu
 #include "mainMenu.h"
@@ -28,7 +30,7 @@
 #include "soundbank_bin.h"
 
 // Constants
-#define WIN			15
+#define WIN			10
 #define CORRECT		2
 #define INCORRECT	1
 #define TIMER_SPEED (BUS_CLOCK/1024)
@@ -39,7 +41,6 @@ char solution[WIN];
 int last = 0;									//last void position
 int length = sizeof(solution)/sizeof(char);
 int correct = 1;
-
 
 /*
 	Initializes the array
@@ -120,7 +121,7 @@ void updateTimer()
 */
 int randint(int n)
 {
-	// We change de seed every time
+	// We change the seed every time
 	int v = 3;
 	int memAddr = (int)&v;
 	int rawValue = abs(memAddr);
@@ -204,13 +205,13 @@ int selection(char x, int pos)
 	loadBG(x);
 	if(confirm(x,pos)){
 		if(pos + 1 >= last)changeTimer(1,CORRECT);
-		//sleep(5);
+		sleep(5);
 		decompress(chromeP2Bitmap, BG_GFX_SUB,  LZ77Vram);
 		return 1;
 	}
 	else{
 		changeTimer(0,INCORRECT);
-		//sleep(5);
+		sleep(5);
 		decompress(chromeP2Bitmap, BG_GFX_SUB,  LZ77Vram);
 		return 0;
 	}
@@ -221,6 +222,8 @@ int selection(char x, int pos)
 */
 int main()
 {
+	LOOP:
+	
 	initSol();									// Initializes the solution array
 
 	touchPosition touch;
@@ -292,62 +295,75 @@ int main()
 		255,	// panning
 	};
 	
+	PrintConsole topScreen;
+	PrintConsole bottomScreen;
+
+	last = 0;
+	end = 0;
+	correct = 1;
+	
+	minutes = 1;
+	seconds = 0;
 	
 	// We load the main menu
 	loadMenu();
 	mmEffectEx(&choose);
-	//sleep(5);
+	sleep(5);
 	
-	
-	// Configuring topScreen
-	videoSetMode(MODE_4_2D);
-	vramSetBankA(VRAM_A_MAIN_BG);
-	
-	PrintConsole topScreen;
-    int bg = bgInit(3, BgType_Bmp16, BgSize_B16_256x256, 5,0);
-    decompress(topscreenBitmap, bgGetGfxPtr(bg), LZ77Vram);
-    consoleInit(&topScreen, 1,BgType_Text4bpp, BgSize_T_256x256, 4, 0, true, true);
-	
-	
-	// Configuring bottomScreen
+	//videoSetMode(MODE_0_2D);
+	//videoSetModeSub(MODE_5_2D);
+	videoSetMode(MODE_0_2D | MODE_4_2D);
 	videoSetModeSub(MODE_4_2D);
+	
+	vramSetBankA(VRAM_A_MAIN_BG);
+	vramSetBankB(VRAM_B_MAIN_BG);
 	vramSetBankC(VRAM_C_SUB_BG);
 	
-	PrintConsole bottomScreen;
-	consoleInit(&bottomScreen, 3, BgType_Bmp16, BgSize_B16_256x256, 0, 0, false, false);
-	decompress(chromeP2Bitmap, BG_GFX_SUB,  LZ77Vram);
+	//consoleInit(&topScreen, 3,BgType_Text4bpp, BgSize_T_256x256, 31, 0, true, true);
+	int bg = bgInit(3, BgType_Bmp16, BgSize_B16_256x256, 5,0);
+	
+	PrintConsole *console = consoleInit(&topScreen, 0, BgType_ExRotation, BgSize_ER_256x256, 20, 0, true, false);
+	ConsoleFont font;
 
-    // Selecting topScreen
+	font.gfx = (u16*)fontTiles;
+	font.pal = (u16*)fontPal;
+	font.numChars = 95;
+	font.numColors =  fontPalLen / 2;
+	font.bpp = 8;
+	font.asciiOffset = 32;
+	font.convertSingleColor = false;
+	
+	consoleSetFont(console, &font);
+	
+    decompress(topScreenBitmap, bgGetGfxPtr(bg), LZ77Vram);
+    consoleInit(&topScreen, 1,BgType_Text4bpp, BgSize_T_256x256, 4, 0, true, true);
+	consoleInit(&bottomScreen, 3, BgType_Bmp16, BgSize_B16_256x256, 0, 0, false, false);
+
+	consoleSetFont(console, &font);
+	//consoleSelect(&topScreen);
+	
+	decompress(chromeP2Bitmap, BG_GFX_SUB,  LZ77Vram);
+	
+	// Selecting topScreen
 	consoleSelect(&topScreen);
 	
 	//Move text
-	consoleSetWindow(&topScreen, 45, 5, 40, 40);
-	
-	// (Trying to) Scale text
-	ConsoleFont font;
-	consoleSetFont(&topScreen, &font);
-	const unsigned int angle = 0;
-	int scaleX = intToFixed(1,8);
-	int scaleY = intToFixed(1,8);
-
-	bgSetRotateScale(topScreen.bgId, angle, ++scaleX, ++scaleY);
-	bgUpdate();
-	
+	consoleSetWindow(&topScreen, 46, 8, 40, 40);
 	
 	//calls the updateTimer function 1 times per second
 	timerStart(0, ClockDivider_1024, TIMER_FREQ_1024(1), updateTimer);
-	
+
 	while(/*1 &&*/ last <= WIN && !end)
 	{
 		int pos = 0;
 		int i;
 		char sel = 'v';
-		
+			
 		swiWaitForVBlank();
 		scanKeys();
-		
+			
 		if(correct) appendSol();
-		
+			
 		//AI
 		for(i = 0; i < last; i++)
 		{
@@ -367,77 +383,74 @@ int main()
 				mmEffectEx(&b);
 				break;
 			}
-			//sleep(5);
+			sleep(5);
 			decompress(chromeP2Bitmap, BG_GFX_SUB,  LZ77Vram);
 		}
 		//AI
-		
+			
 		correct = 1;
-		
+			
 		for(i = 0; (i < last) && correct && !end; i++)
 		{
 			while (sel == 'v' && !end){
-				
+					
 				touchRead(&touch);
-				
+					
 				//Red
 				if(((touch.px >= 100 && touch.px <= 200) && (touch.py >= 25 && touch.py <= 56)) || ((touch.px >= 168 && touch.px <= 200) && (touch.py >= 25 && touch.py <= 90)) || ((touch.px >= 151 && touch.px <= 200) && (touch.py >= 25 && touch.py <= 61)))
 				{	
 					sel = 'r';
 					mmEffectEx(&r);
 				}
-				
+					
 				//Green
 				if(((touch.px >= 55 && touch.px <= 87) && (touch.py >= 25 && touch.py <= 146)) || ((touch.px >= 55 && touch.px <= 79) && (touch.py >= 146 && touch.py <= 158)))
 				{	
 					sel = 'g';
 					mmEffectEx(&g);
 				}
-					
+						
 				//Yellow
 				if(((touch.px >= 99 && touch.px <= 114) && (touch.py >= 154 && touch.py <= 168)) || ((touch.px >= 114 && touch.px <= 200) && (touch.py >= 136 && touch.py <= 168)) || ((touch.px >= 167 && touch.px <= 200) && (touch.py >= 108 && touch.py <= 168)))
 				{
 					sel = 'y';
 					mmEffectEx(&y);
 				}
-					
+						
 				//Blue
 				if(((touch.px >= 98 && touch.px <= 156) && (touch.py >= 66 && touch.py <= 125)))
 				{
 					sel = 'b';
 					mmEffectEx(&b);
 				}
-				
+					
 			} // closes while
-			
+				
 			if(sel != 'v')
 				correct = selection(sel,pos);
 			if(!correct)
 			{
 				mmEffectEx(&wrong);
 				iprintf("\nERROR!");
-				//sleep(5);
+				sleep(5);
 			}
 			pos++;
 			sel = 'v';
 		} // closes for
+			
+	}
 		
-	}
-	
-	int a = 0;
-	
-	if(last >= WIN){
-		iprintf("\nHAS GUANYAT!\nPrem 'A' per a sortir\n");
-		while (!a)
-		{
-			if(keysDown()&KEY_A) a = 1;
+		if(last >= WIN){
+			loadFinal(1);
+			mmEffectEx(&choose);
+			timerStop(0);
+			sleep(5);
+			goto LOOP;
+		} else {
+			loadFinal(0);
+			mmEffectEx(&choose);
+			timerStop(0);
+			sleep(5);
+			goto LOOP;
 		}
-	} else {
-		iprintf("\nHas perdut\nPrem 'A' per a sortir\n");
-		while (!a)
-		{
-			if(keysDown()&KEY_A) a = 1;
-		}
-	}
 }
-
