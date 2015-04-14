@@ -61,7 +61,8 @@ main.o: /home/nrikee/Documents/GitHub/AEV-project/source/main.c \
  /home/nrikee/Documents/GitHub/AEV-project/build/green.h \
  /home/nrikee/Documents/GitHub/AEV-project/build/yellow.h \
  /home/nrikee/Documents/GitHub/AEV-project/build/blue.h \
- /home/nrikee/Documents/GitHub/AEV-project/build/topscreen.h \
+ /home/nrikee/Documents/GitHub/AEV-project/build/topScreen.h \
+ /home/nrikee/Documents/GitHub/AEV-project/build/font.h \
  /home/nrikee/Documents/GitHub/AEV-project/include/mainMenu.h \
  /home/nrikee/devkitPro/libnds/include/maxmod9.h \
  /home/nrikee/devkitPro/libnds/include/mm_types.h \
@@ -192,7 +193,9 @@ main.o: /home/nrikee/Documents/GitHub/AEV-project/source/main.c \
 
 /home/nrikee/Documents/GitHub/AEV-project/build/blue.h:
 
-/home/nrikee/Documents/GitHub/AEV-project/build/topscreen.h:
+/home/nrikee/Documents/GitHub/AEV-project/build/topScreen.h:
+
+/home/nrikee/Documents/GitHub/AEV-project/build/font.h:
 
 /home/nrikee/Documents/GitHub/AEV-project/include/mainMenu.h:
 

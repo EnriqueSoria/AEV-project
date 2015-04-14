@@ -1,25 +1,25 @@
 
-//{{BLOCK(green)
+//{{BLOCK(lose)
 
 //======================================================================
 //
-//	green, 256x192@16, 
+//	lose, 256x192@16, 
 //	Alphabit on.
 //	+ bitmap lz77 compressed
-//	Total size: 24476 = 24476
+//	Total size: 20280 = 20280
 //
-//	Time-stamp: 2015-04-14, 21:07:10
+//	Time-stamp: 2015-04-14, 21:07:11
 //	Exported by Cearn's GBA Image Transmogrifier, v0.8.12
 //	( http://www.coranac.com/projects/#grit )
 //
 //======================================================================
 
-#ifndef GRIT_GREEN_H
-#define GRIT_GREEN_H
+#ifndef GRIT_LOSE_H
+#define GRIT_LOSE_H
 
-#define greenBitmapLen 24476
-extern const unsigned int greenBitmap[6119];
+#define loseBitmapLen 20280
+extern const unsigned int loseBitmap[5070];
 
-#endif // GRIT_GREEN_H
+#endif // GRIT_LOSE_H
 
-//}}BLOCK(green)
+//}}BLOCK(lose)
