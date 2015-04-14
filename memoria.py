@@ -18,9 +18,9 @@ nombre_html = 'memoria.html'
 # Índice
 indice = '''
     <h1 class="text-muted" >Taula de continguts</h1>
-    <ul>
+    <ol>
         %s
-    </ul>
+    </ol>
 '''
 indice_elemento = '''<li><h4><bold><a href='#%s'>%s</a></bold><h4></li>\n'''
 

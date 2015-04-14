@@ -40,7 +40,7 @@
             code {
                 font-family: 'Anonymous Pro', serif;
             }
-            a, p, h1, h2, h3, h4, h5 {
+            a, p, h1, h2, h3, h4, h5, h6, ol, ul, li {
                 font-weight: lighter;
             }
             .cd-container {
@@ -153,11 +153,21 @@
     <div class="col-md-8">
         
     <h1 class="text-muted" >Taula de continguts</h1>
-    <ul>
-        <li><h4><bold><a href='#-proyecto:-planificacio-i-requisits'> Proyecto: Planificacio i requisits</a></bold><h4></li>
+    <ol>
+        <li><h4><bold><a href='#abstracte'>Abstracte</a></bold><h4></li>
+
+<li><h4><bold><a href='#objectius'>Objectius</a></bold><h4></li>
+
+<li><h4><bold><a href='#introduccio'>Introduccio</a></bold><h4></li>
+
+<li><h4><bold><a href='#desenvolupament'>Desenvolupament</a></bold><h4></li>
+
+<li><h4><bold><a href='#conclusio'>Conclusio</a></bold><h4></li>
+
+<li><h4><bold><a href='#bibliografia'>Bibliografia</a></bold><h4></li>
 
 
-    </ul>
+    </ol>
 
     </div>
 </div>
@@ -165,40 +175,130 @@
     <!-- Aquí empiezan los artículos -->
     <div class="col-md-12">
         
-    <div id='-proyecto:-planificacio-i-requisits' class='featurette data-sr'>
-        <h1>Projecte: Planificació i requisits</h1>
-<h2>Descripció básica</h2>
-<p>El joc és l'adaptació del clàssic “Simon says” a la consola Nintendo DS. No obstant, i per tal de dotar al projecte d'una mica de personalitat pròpia, canviarem el clàssic disc de quatre colors pel logotip del navegador Google Chrome, emprant els seus quatre colors com a tecles del disc.</p>
-<h2>Mecàniques</h2>
-<p>Mentre que la característica principal del joc clàssic consisteix en anar fent més llarga i difícil la combinació de tecles que el jugador té que polsar, Chrome says afegirà també la característica d'un compte enrere. Cada vegada que el jugador faça un error, el comptador baixarà 7 segons, mentre que cada vegada que encerte, pujarà 4 segons (els temps no són definitius). Al ser un temporitzador, el temps anirà baixant segon a segon, l'objectiu del jugador és encertar la seqüència que se li ha dit al menor temps possible amb l'objectiu d'evitar que el comptador arribe a 0.</p>
-<h2>Un exemple d'una partida</h2>
-<p>El jugador iniciarà el joc, en la pantalla inferior (tàctil) es mostrarà una imatge, i en la superior un text associat a la mateixa. Si el jugador polsa el botó A (pot variar respecte a la versió final) passarà a la següent imatge i text associat. Amb aquestes imatges (no més de 2 o 3) s'informarà al jugador del context del joc, i del per què del disc amb forma del logo de Chrome: La nostra mare vol gastar el nostre ordinador però, desgraciats de nosaltres, ens hem oblidat d'esborrar l'historial de navegació! Per tal d'evitar que puga tindre accés al mateix, deguem fer el que ens diga Chrome, repetint les seqüències que ens indique. Tenim que aguantar el major temps possible per tal de que no descobrisca la veritat!</p>
-<p>Després d'aquesta introducció passarem al joc en sí mateix. A la pantalla superior es mostrarà el temporitzador, mentre que a la inferior trobarem el disc de Chrome amb el que tindrem que interactuar.</p>
-<p>El propi joc ens mostrarà a la pantalla inferior la seqüència que tenim que reproduir, il·luminant les tecles que tenim que polsar en l'ordre al que tenim que fer-ho. Immediatament després el jugador deurà tornar a polsar les mateixes tecles en l'ordre determinat. Si encerta, a la pantalla superior es sumaran els segons corresponents al temporitzador, si falla, es restaran.</p>
-<h2>Posibles ampliacions</h2>
-<p>Com a ampliacions, en cas d'acabar el projecte i que ens sobre temps, es podria afegir un menú principal amb altres opcions, a més de la de jugar, com ara un ranking dels millors resultats, segons el número de seqüències correctes fetes fins el moment de que el comptador arribe a 0.</p>
-<h2>Planificació</h2>
-<p>Cerca d'informació d'aplicacions semblants.</p>
+    <div id='abstracte' class='featurette data-sr'>
+        <h2>1. Abstracte</h2>
+<p><strong>Chrome</strong> says és un videojoc que correspon amb el projecte final de l’assignatura AEV (ETSINF - UPV).</p>
+<p>Desenvolupat mitjançant la biblioteca vista a classe <code>libnds</code> i el llenguatge de programació C, el joc consisteix en tocar els botons il·luminats per la màquina en el mateix ordre, fins arribar a quinze seqüències, sense que s’acabe el temps. Tot tenint   en compte que les possibles errades de repetiment per part de l’usuari descomptaran     segons al compte enrere, reduint el temps per completar el joc.</p>
+<p>Deixant de banda les mecàniques, el joc és una adaptació del clàssic “Simon says” a l’univers Google y a la videoconsola Nintendo DS. Aquesta memòria documentarà tot el procés de desenvolupament del videojocs des de les seues primeres fases.</p>
+<p><strong>Paraules clau</strong>: <code>Nintendo DS</code>, <code>Chrome</code>, <code>Simon</code>, <code>videojoc</code>, <code>libnds</code>.</p>
+    </div>
+<br><hr><br>
+
+    <div id='objectius' class='featurette data-sr'>
+        <h2>2. Objectius</h2>
+<p>El principal objectiu d’aquest projecte és ser capaços de desenvolupar un videojoc complet, partint de zero, per a la videoconsola <code>Nintendo DS</code> posant en  pràctica tots els coneixements apresos al llarg de l’assignatura: tractament d’imatges, àudio, interacció entrada/sortida amb l’usuari, etc.</p>
+<p>Altre objectiu és el contingut pedagògic d’aquesta pròpia memòria. Lluny de     ser un tutorial, aquest document explica els passos seguits pels autors per tal d’assolir l’objectiu principal abans esmentat. Així, aquest document ajudarà  a futurs alumnes que es troben els mateixos problemes que els autors a l’hora de desenvolupar el seu projecte de l’assignatura.</p>
+    </div>
+<br><hr><br>
+
+    <div id='introduccio' class='featurette data-sr'>
+        <h2>3. Introducció</h2>
+<h3>3.1 Argument</h3>
+<p>El nostre navegador s’ha tornat boig. En un acte d’extrema maldat , <em>Google Chrome</em> ha decidit enviar el nostre historial de navegació a la nostra mare. Per tal d’impedir-nos evitar-ho, ha bloquejat el nostre ordinador, si volem evitar la catàstrofe, tindrem que seguir el joc al malvat <em>Chrome</em> i seguir les combinacions de colors que ens diga. Per fer-ho encara més complicat, Chrome només ens dóna un minut per tal de fer les quinze combinacions que ens mostra. Si aconseguim fer-ho abans de que s’acabe el temps, esborrarem amb èxit el nostre historial i recuperarem el control del nostre ordinador. Però si no ho fem... ningú pot imaginar-se les conseqüències.</p>
+<h3>3.2 Partida tipus</h3>
+<p>Només comence el joc es mostrarà el menú principal. L’única opció serà la de començar un nou joc, però mentre no se li’n done a la pantalla tàctil al botó o es prema el botó A, no s’iniciarà la partida. Es podrà sentir el tema principal del joc des de’l primer moment, sense necessitat d’haver iniciat la partida.</p>
+<p>Una vegada iniciada, a la pantalla superior començarà el compte enrere, mentre que a la inferior començarà la primera seqüència de colors, il·luminant-se les tecles corresponent. Cada vegada que s’il·lumine una tecla del disc Chrome a la pantalla inferior, ja siga perquè l’usuari l’ha pressionat o la pròpia màquina ho ha fet, s’escoltarà un so corresponent al color en qüestió. Una vegada acabe la màquina, el jugador tindrà control per a poder repetir la seqüència. Si encerta, sumarà dos segons al compte enrere, i continuarà la màquina afegint una tecla més a la seqüència. Si falla, es restarà un segon al compte enrere, a més d’emetre’s un so característic que indica l’error. En cas de fallada de l’usuari, no s’afegirà una altra tecla a la seqüència fins que es faça bé.</p>
+<p>Una vegada el jugador guanye, o perda, es donarà pas a la pantalla de victòria o de derrota, respectivament. L’única interacció possible serà donar-li al botó de la pantalla inferior, o prémer el botó A per tal de tornar al menú principal.</p>
+<p><img class="img-responsive center-block" alt="Figura 1: Diagrama de flux d'una partida tipus" src="imgs/memoria/1.png" /></p>
+<h3>3.3 Motivació</h3>
+<p>Obviant el desig de voler treure la millor nota possible a l’assignatura, hi ha altra motivació oculta, per part dels autors, que explica la tria d’aquest projecte. I aquesta és l’aspiració d’entrar a formar per de la indústria dels videojocs com a desenvolupadors dels mateixos.</p>
+<p>És per tant, per tal d’assolir aquest objectiu, un requisit indispensable tenir una bona base amb els mateixos. Així com disposar d’alguns jocs fets prèviament per tal de fer-los servir com a carta de presentació i mostra de les aptituds personals dels autors a l’hora de fer la seua feina. És aquesta, per tant, la raó d’haver-nos matriculat d’aquesta assignatura i haver-hi seleccionat aquest projecte entre els proposats pel professor.</p>
+    </div>
+<br><hr><br>
+
+    <div id='desenvolupament' class='featurette data-sr'>
+        <h2>4. Desenvolupament</h2>
+<h3>4.1 Coneixements previs</h3>
+<p>Anem a veure a continuació els coneixements previs indispensables per tal de poder desenvolupar aquest projecte:</p>
 <ul>
-<li>
-<p>Creació de les imatges i sprites que es gastaran al llarg del joc.</p>
-</li>
-<li>
-<p>Cerca dels sons de les tecles.</p>
-</li>
-<li>
-<p>Temporitzador i algorisme de modificacions de temps.</p>
-</li>
-<li>
-<p>Desenvolupament de la interacció amb les tecles (il·luminació al polsar, reproducció de so al posar).</p>
-</li>
-<li>
-<p>Algorisme de creació de seqüències aleatòries.</p>
-</li>
-<li>
-<p>Proves globals de l'aplicació.</p>
-</li>
+<li>Nivell intermedi, o superior, del llenguatge de programació C</li>
+<li>Conèixer l’arquitectura de la videoconsola <em>Nintendo DS</em></li>
 </ul>
+<p>Com podem veure, només hi ha dos requisits previs per tal de poder fer aquesta aplicació, ja que és un projecte molt simple no necessitem més, però també seria recomanable, per tal de fer més fàcil la nostra tasca i fer un joc de millor qualitat, tenir els següents coneixements:</p>
+<ul>
+<li>Coneixement de retoc fotogràfic (GIMP, Photoshop, etc)</li>
+<li>Coneixement de creació de música i efectes (Audacity, etc)</li>
+</ul>
+<p>El motiu d’aquests coneixements recomanables és per tal de poder editar i produir les nostres pròpies <em>backgrounds</em>, <em>sprites</em>, y <em>textures</em>. Així com els efectes de so i àudios. Tot açò es pot trobar per internet amb llicències obertes i sense restriccions, però amb açò perdrem la personalitat del projecte i dependrem de contingut de tercers. No obstant, es pot fer sense tenir aquestes nocions.</p>
+<p>Per acabar aquest punt, llistarem a continuació el programari necessari per tal de desenvolupar el projecte i, entre parèntesi, el que nosaltres hem utilitzat. Òbviament no té per què emprar-se el mateix que nosaltres:</p>
+<ul>
+<li>Editor de text o IDE: <code>Notepad</code>, <code>Gedit</code></li>
+<li>Emulador de <em>Nintendo DS</em>: <code>No$GBA</code>, <code>DeSmuME</code></li>
+</ul>
+<h3>4.2 Procediment utilitzat</h3>
+<p>Per al desenvolupament de <strong>Chrome says</strong> hem seguit el cicle de desenvolupament del programari i les seues fases.</p>
+<p><img class="img-responsive center-block" alt="Figura 2: Fases de desenvolupament del programari" src="imgs/memoria/2.png" /></p>
+<h4>4.2.1 Requisits</h4>
+<p>Com que ja hem explicat a la introducció com és una partida tipus, ja sabem quins són, doncs, els requisits. Així doncs, anem a llistar-los per tal de deixar-ho el més clar possible:</p>
+<ul>
+<li>Menús principal, de victòria i derrota</li>
+<li>Compte enrere amb la possibilitat de sumar o restar segons</li>
+<li>Intel·ligència artificial que genere seqüències de colors</li>
+<li>Capacitat d’interacció per part de l’usuari</li>
+<li>Il·luminació de tecles i sons</li>
+<li><em>Backgrounds</em> i <em>sprites</em></li>
+<li>Un so per a cada tecla, a més d’un so de selecció, d’error i un tema principal per al joc</li>
+</ul>
+<p>Una vegada tenim tots els requisits clars, cal que passem a analitzar com solucionar el nostre problema (requisits), això és, la fase de l’anàlisi.</p>
+<h4>4.2.2 Anàlisi</h4>
+<p>L’anàlisi no és altra cosa que la solució als problemes plantejats als requisits. Així doncs, anem a veure quina va ser la nostra solució per a cadascun d’aquests problemes sense entrar en temes de programació, punt que veurem a la fase de codificació.</p>
+<p>Tots els menús s’implementen amb el seu codi a part, cada menú tindrà la seua pròpia funció, llevat del de victòria i derrota que tindrà la mateixa i, depenent de l’argument d’entrada, es carregarà un o altre menú. Com que només cal carregar dues backgrounds i definir una interacció quan es prem el botó de la pantalla o la tecla A, és una funció molt simple.</p>
+<p>El compte enrere s’implementarà mitjançant dues funcions: una que actualitze el temporitzador cada segon i vaja descomptant, i altra que, segons si l’usuari falla o encerta la combinació a repetir, sume o reste la quantitat corresponent al temporitzador (dos segons en cas d’encert i un en cas de fallada).</p>
+<p>La intel·ligència artificial és un punt fàcil de resoldre. Una simple funció que traga valors aleatoris entre quatre possibilitats ens servirà per tal de saber quina tecla té que il·luminar-se. Guardarem aquesta combinació per tal se saber quina és la solució correcta que l’usuari té que repetir i així poder comprovar si ho ha fet bé o no.</p>
+<p>Per a cada tecla o botó, en el cas de la interfície del menú, definirem unes regions a les quals detectarem si l’usuari ha polsat. Ja que tota interacció es farà mitjançant la pantalla inferior o tàctil. Amb aquestes regions de coordenades podrem saber quina tecla ha polsat l’usuari en cada moment, informació que enviarem a la funció d’il·luminació i a la de comprovació de solució.</p>
+<p>La funció d’il·luminació i sons carregarà la background corresponent a la tecla il·luminada i reproduirà el seu so característic. Aquesta funció s’empra tant per la intel·ligència artificial com per la part de la interacció de l’usuari. D’aquesta manera ens estalviem el tenir que fer dues funcions separades per al mateix propòsit.</p>
+<p>La creació de les diferents backgrounds i sprites que es gasten al joc s’han fet amb el programari lliure GIMP. Al subapartat de disseny veurem com les hem distribuït. De la mateixa manera, el so s’ha tret íntegrament de les pàgines indicades ala bibliografia sense que nosaltres el modifiquem de cap manera.</p>
+<p>Tota la integració d’aquestes funcions es fa al mètode principal main del joc. Una vegada hem analitzat els problemes i pensat una solució, només cal fer el disseny i començar a codificar les funcions ací descrites.</p>
+<h4>4.2.3 Disseny</h4>
+<p>Pel que fa al disseny d’interfícies, ho hem fet de la manera més simple que hem pogut. Reduint al mínim la sobrecàrrega d’informació, l’usuari sempre sabrà què fer i on polsar per tal de continuar amb la seua tasca. Els menús són simples i el joc també.</p>
+<p><img class="img-responsive center-block" alt="Figura 3: Menú principal del joc" src="imgs/memoria/3.png" /></p>
+<p>Centrem sempre la interacció en la pantalla tàctil, de manera que resulte més còmode per a l’usuari acostumar-se a que la pantalla superior tan sols és informativa. D’aquesta manera estarà centrat en la pantalla inferior per tal d’interaccionar i mirarà la superior per a consultar informació, com ara, el temporitzador per a saber quant de temps li queda.</p>
+<p><img class="img-responsive center-block" alt="Figura 4: Pantalla inferior quan es prem la tecla roja" src="imgs/memoria/4.png" /></p>
+<h4>4.2.4 Codificació</h4>
+<p>La part de codificació consisteix, com ja hem dit, en passar a codi la part de l’anàlisi. Així doncs, passem a explicar breument, ja que junt amb la memòria s’entregarà el codi del projecte, les funcions que hem detallat a l’anàlisi de manera abstracta.</p>
+<p><strong>Menús</strong>: Els menús no són més que backgrounds que es carreguen i mostren en la consola. Les funcions dels menús es queden en un bucle del qual només es surt quan l’usuari prem el botó de la pantalla tàctil o la tecla A. Com ja hem explicat a l’anàlisi, per tal de detectar quan s’ha pressionat el botó de la pantalla tàctil, s’ha delimitat una superfície de coordenades a la pantalla. Quan l’usuari toca la pantalla dins d’eixa superfície, se sap que ha pres el botó.</p>
+<p><strong>Compte enrere</strong>: Per al compte enrere s’han fet les dues funcions abans dites. Ambdues gastes unes variables globals que indiquen els minuts i segons del temporitzador, i són eixes variables les que anem actualitzant. Per a anar reduint una vegada per segon el temps, es gasta un dels temporitzadors hardware dels que disposa la consola. A aquest temporitzador li indiquem que cride a la funció d’actualitzar, una vegada per segon. D’aquesta manera podem reduir el temps d’una manera simple.</p>
+<p><img class="img-responsive center-block" alt="Figura 5: Línia de codi del temporitzador hardware número 9" src="imgs/memoria/5.png" /></p>
+<p><strong>Intel·ligència artificial</strong>: Per a la intel·ligència artificial hem tingut més problemes, ja que a C les funcions <code>rand()</code> generen números pseudoaleatoris, però sempre basades en una mateixa seed. Aleshores, mentre aquesta seed no es modifique, cada partida sortirien els mateixos números, i per tant, la mateixa combinació de tecles a polsar. La solució va ser declarar una variable qualsevol, traure la seua adreça virtual, la qual canviarà en cada execució del programa font, i, per tal de donar-li més aleatorietat, li sumem els segons actuals del compte enrere (el qual, òbviament, es modifica a cada segon que passa) i aquest valor serà la seed per a eixe valor aleatori. Per al següent, es tornarà a fer el procés per a canviar la seed i després es traurà el valor, de manera que cada valor està tret d’una llavor diferent.</p>
+<p><img class="img-responsive center-block" alt="Figura 6: Funció per traure un sencer pseudoaleatori canviant la seed cada execució" src="imgs/memoria/6.png" /></p>
+<p>Després, amb altra funció, canviem eixe sencer tret amb la funció anterior per un caràcter que ens indicarà quina tecla surt per a la combinació.</p>
+<p><strong>Interacció</strong>: La interacció és la part més simple, només tenim que veure qualsevol dels exemples que ens proporciona devKitPro per a veure que simplement hi ha que indicar una variable <code>touchPosition</code> que ens indicarà les coordenades a les que s’ha tocat la pantalla tàctil cada vegada que es faça. Amb això i les regions o superfícies delimitades per a cada tecla, sabrem si s’ha polsat dins d’una tecla o no i, en cas d’haver-ho fet, quina és.</p>
+<p><strong>Il·luminació i sons</strong>: Per a la il·luminació de les tecles, simplement hem fet una <em>background</em> per a cada possible tecla il·luminada. Aleshores, només ens cal una funció que, depenent de l’entrada, carregue un o altre fons. Tornant després al fons original, és a dir, sense cap tecla il·luminada. Amb aquesta mateixa entrada, podrem indicar de la mateixa forma quin so es té que reproduir. Llevat del tema principal que es comença a reproduir al començament de l’execució del programa, indistintament de la interacció de l’usuari.</p>
+<p><img class="img-responsive center-block" alt="Figura 7: Funció per a &quot;il·luminar&quot; la tecla corresponent" src="imgs/memoria/7.png" /></p>
+<p>Explicats aquests punts fonamentals, la resta del codi consisteix bàsicament en la integració de totes aquestes parts. Com s’adjunta el codi, es pot mirar qualsevol funció i consultar-la.</p>
+<h4>4.5.2 Proves</h4>
+<p>Malgrat ser l’última fase, a aquest projecte les proves s’han anat fent segons es desenvolupava la fase de codificació pas a pas, per tal d’anar veient que tot funcionava correctament. Les proves finals han sigut en ambdós emuladors per tal de veure que funcionava indistintament en un i altre.</p>
+    </div>
+<br><hr><br>
+
+    <div id='conclusio' class='featurette data-sr'>
+        <h2>5. Conclusió</h2>
+<p>Com a conclusions d’aquest treball podem treure la gran necessitat d’una millor documentació de libnds. Per als dubtes que han anat sortint al llarg del desenvolupament: cerca de funcions, macros, estructures... s’han tingut que consultar els exemples que vénen amb el devKitPro, ja que la documentació era confusa en ocasions.</p>
+<p><img class="img-responsive center-block" alt="Figura 8: Part de la documentació oficial de libnds" src="imgs/memoria/8.png" /></p>
+<p>Com a treball de l’assignatura és un projecte acceptable. A més a més, com que cada alumne pot triar quin fer o inclús proposar un, és molt versàtil. No obstant, s’hauria de donar més pràctica a classe. A les classes de teoria s’haurien de dur portàtils o fer-les al laboratori, el mestre hauria de anar guiant des del seu tota la sessió, mostrant com carregar imatges, sons, etc. Per tal d’ajudar l’aprenentatge dels alumnes.</p>
+<p>També, i com a conclusió final, hem consolidat les fases de desenvolupament del programari, així com els coneixements adquirits a classe sobre l’arquitectura de la Nintendo DS. Sobre la qual, pensem, que seria necessari desenvolupar un framework per tal de fer més fàcil la tasca de programar sobre ella. Ja que no és difícil però es fa pesat i pot arribar a ser enutjós. Més encara quan no hi ha una bona documentació al darrere.</p>
+    </div>
+<br><hr><br>
+
+    <div id='bibliografia' class='featurette data-sr'>
+        <h2>6. Biblioteca</h2>
+<h3>6.1 Material de consulta</h3>
+<p>[1] Documentació de libnds. Disponible en:
+http://libnds.devkitpro.org/index.html</p>
+<p>[2] <em>How to make a bouncing ball game</em>. Disponible en:
+http://ekid.nintendev.com/bouncy/</p>
+<p>[3] Pràctiques de l’assginatura d’AEV, ETSINF-UPV.</p>
+<p>[4] Dubtes de programació sobre C resolts als fòrums d’Stackoverflow. Disponible en:
+http://stackoverflow.com/</p>
+<h3>6.2 Imatges i sons</h3>
+<p>[1] Find Icons. Disponible en:
+http://findicons.com/</p>
+<p>[2] Homes Kid. Disponible en:
+http://homes-kid.com/</p>
+<p>[3] Free Sound. Disponible en:
+http://freesound.org/</p>
+<p>[4] The ModArchive. Disponible en:
+http://modarchive.org/</p>
     </div>
 <br><hr><br>
 
