@@ -29,5 +29,4 @@
 *.hex
 
 # Nintendo DS executable files
-*.nds
 *.elf
