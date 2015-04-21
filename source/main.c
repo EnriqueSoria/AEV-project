@@ -431,7 +431,7 @@ int main()
 			if(!correct)
 			{
 				mmEffectEx(&wrong);
-				iprintf("\nERROR!");
+				iprintf("\n\nERROR!");
 				sleep(5);
 			}
 			pos++;

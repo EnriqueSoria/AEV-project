@@ -1,4 +1,4 @@
-mainMenu.o: /home/nrikee/Documents/GitHub/AEV-project/source/mainMenu.c \
+mainMenu.o: /home/nrikee/Documents/GitHub/Projecte/source/mainMenu.c \
  /home/nrikee/devkitPro/libnds/include/nds.h \
  /home/nrikee/devkitPro/libnds/include/nds/libversion.h \
  /home/nrikee/devkitPro/libnds/include/nds/ndstypes.h \
@@ -56,11 +56,11 @@ mainMenu.o: /home/nrikee/Documents/GitHub/AEV-project/source/mainMenu.c \
  /home/nrikee/devkitPro/libnds/include/nds/arm9/trig_lut.h \
  /home/nrikee/devkitPro/libnds/include/nds/arm9/video.h \
  /home/nrikee/devkitPro/libnds/include/nds/arm9/videoGL.h \
- /home/nrikee/Documents/GitHub/AEV-project/build/menu.h \
- /home/nrikee/Documents/GitHub/AEV-project/build/portada.h \
- /home/nrikee/Documents/GitHub/AEV-project/build/win.h \
- /home/nrikee/Documents/GitHub/AEV-project/build/lose.h \
- /home/nrikee/Documents/GitHub/AEV-project/build/back.h
+ /home/nrikee/Documents/GitHub/Projecte/build/menu.h \
+ /home/nrikee/Documents/GitHub/Projecte/build/portada.h \
+ /home/nrikee/Documents/GitHub/Projecte/build/win.h \
+ /home/nrikee/Documents/GitHub/Projecte/build/lose.h \
+ /home/nrikee/Documents/GitHub/Projecte/build/back.h
 
 /home/nrikee/devkitPro/libnds/include/nds.h:
 
@@ -176,12 +176,12 @@ mainMenu.o: /home/nrikee/Documents/GitHub/AEV-project/source/mainMenu.c \
 
 /home/nrikee/devkitPro/libnds/include/nds/arm9/videoGL.h:
 
-/home/nrikee/Documents/GitHub/AEV-project/build/menu.h:
+/home/nrikee/Documents/GitHub/Projecte/build/menu.h:
 
-/home/nrikee/Documents/GitHub/AEV-project/build/portada.h:
+/home/nrikee/Documents/GitHub/Projecte/build/portada.h:
 
-/home/nrikee/Documents/GitHub/AEV-project/build/win.h:
+/home/nrikee/Documents/GitHub/Projecte/build/win.h:
 
-/home/nrikee/Documents/GitHub/AEV-project/build/lose.h:
+/home/nrikee/Documents/GitHub/Projecte/build/lose.h:
 
-/home/nrikee/Documents/GitHub/AEV-project/build/back.h:
+/home/nrikee/Documents/GitHub/Projecte/build/back.h:

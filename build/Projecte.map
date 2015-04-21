@@ -1998,7 +1998,7 @@ LOAD /home/nrikee/devkitPro/devkitARM/bin/../lib/gcc/arm-none-eabi/4.9.2/../../.
 END GROUP
 LOAD /home/nrikee/devkitPro/devkitARM/bin/../lib/gcc/arm-none-eabi/4.9.2/crtend.o
 LOAD /home/nrikee/devkitPro/devkitARM/bin/../lib/gcc/arm-none-eabi/4.9.2/crtn.o
-OUTPUT(/home/nrikee/Documents/GitHub/AEV-project/AEV-project.elf elf32-littlearm)
+OUTPUT(/home/nrikee/Documents/GitHub/Projecte/Projecte.elf elf32-littlearm)
 
 .debug_ranges   0x0000000000000000     0x1048
  .debug_ranges  0x0000000000000000      0x420 main.o
